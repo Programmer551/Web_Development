@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tell me a joke</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 80.1vh;
+			width: 86.4vw;
+			background-color:red ;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			border: 10vh solid gray;
+			font-family: cursive;
+		}
+		#btn{
+			background: cyan;
+    color: black;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 19px;
+    font-family: cursive;
+		}
+		#container{
+			height: 30vh;
+    width: 30vw;
+    border: 2px dotted;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	
+<div id="container">
+<p>Joke will appear here</p>
+	
+</div>
+<button id="btn" onclick="appear()">Tell me a joke</button>
+<script type="text/javascript">
+	let jokes=[`Why dont scientists trust atoms? Because they make up everything!`,
+`Why did the scarecrow win an award? Because he was outstanding in his field!`,
+`What do you call a fish wearing a crown? King Neptune.`,
+`Why did the tomato turn red? Because it saw the salad dressing!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What did the grape say when it got stepped on? Nothing, it just let out a little wine!`,
+`What do you call a snowman with a six-pack? An abdominal snowman!`,
+`How do you organize a space party? You "planet"!`,
+`Why dont eggs tell jokes? Because they might crack up!`,
+`Why dont scientists trust atoms? Because they make up everything!`,
+`Why was the math book sad? Because it had too many problems!`,
+`What did one wall say to the other wall? Ill meet you at the corner!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`Why did the golfer bring two pairs of pants? In case he got a hole in one!`,
+`What did the left eye say to the right eye? Between you and me, something smells!`,
+`How do you catch a squirrel? Climb a tree and act like a nut!`,
+`Why was the computer cold? It left its Windows open!`,
+`What do you call a sleeping bull? A bulldozer!`,
+`Why did the bicycle fall over? It was two-tired!`,
+`Whats brown and sticky? A stick!`,
+`Why dont scientists trust atoms? Because they make up everything!`,
+`How does a penguin build its house? Igloos it together!`,
+`What do you call a can opener that doesnt work? A cant opener!`,
+`What did the grape say when it got stepped on? Nothing, it just let out a little wine!`,
+`How do you organize an outer space party? You "planet"!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call fake spaghetti? An impasta!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`Why did the tomato turn red? Because it saw the salad dressing!`,
+`How do you make a tissue dance? You put a little boogie in it!`,
+`What do you call a snowman with a six-pack? An abdominal snowman!`,
+`Why did the scarecrow win an award? Because he was outstanding in his field!`,
+`Why dont eggs tell jokes? Because they might crack up!`,
+`Why dont scientists trust atoms? Because they make up everything!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`How does a penguin build its house? Igloos it together!`,
+`Why did the bicycle fall over? It was two-tired!`,
+`Whats brown and sticky? A stick!`,
+`How does a cucumber become a pickle? It goes through a jarring experience!`,
+`What did one wall say to the other wall? Ill meet you at the corner!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call a sleeping bull? A bulldozer!`,
+`Why was the computer cold? It left its Windows open!`,
+`What do you call fake spaghetti? An impasta!`,
+`How do you organize an outer space party? You "planet"!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call a can opener that doesnt work? A cant opener!`,
+`How do you catch a squirrel? Climb a tree and act like a nut!`,
+`What did the left eye say to the right eye? Between you and me, something smells!`,
+`Why did the scarecrow win an award? Because he was outstanding in his field!`,
+`How does a penguin build its house? Igloos it together!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`Why did the tomato turn red? Because it saw the salad dressing!`,
+`What do you call a snowman with a six-pack? An abdominal snowman!`,
+`Why dont eggs tell jokes? Because they might crack up!`,
+`How do you organize a space party? You "planet"!`,
+`Why was the math book sad? Because it had too many problems!`,
+`What did one wall say to the other wall? Ill meet you at the corner!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`Why did the golfer bring two pairs of pants? In case he got a hole in one!`,
+`What did the left eye say to the right eye? Between you and me, something smells!`,
+`How do you catch a squirrel? Climb a tree and act like a nut!`,
+`Why was the computer cold? It left its Windows open!`,
+`What do you call a sleeping bull? A bulldozer!`,
+`Why did the bicycle fall over? It was two-tired!`,
+`Whats brown and sticky? A stick!`,
+`Why dont scientists trust atoms? Because they make up everything!`,
+`How does a penguin build its house? Igloos it together!`,
+`What do you call a can opener that doesnt work? A cant opener!`,
+`What did the grape say when it got stepped on? Nothing, it just let out a little wine!`,
+`Why did the scarecrow win an award? Because he was outstanding in his field!`,
+`What do you call fake spaghetti? An impasta!`,
+`Why dont eggs tell jokes? Because they might crack up!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`Why did the tomato turn red? Because it saw the salad dressing!`,
+`How do you make a tissue dance? You put a little boogie in it!`,
+`What do you call a snowman with a six-pack? An abdominal snowman!`,
+`Why did the scarecrow win an award? Because he was outstanding in his field!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What did one wall say to the other wall? Ill meet you at the corner!`,
+`Why dont scientists trust atoms? Because they make up everything!`,
+`What do you call a bear with no teeth? A gummy bear!`,
+`How does a penguin build its house? Igloos it together!`,
+`Why did the bicycle fall over? It was two-tired!`,
+`Whats brown and sticky? A stick!`,
+`How does a cucumber become a pickle? It goes through a jarring experience!`,
+`What did one wall say to the other wall? Ill meet you at the corner!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call a sleeping bull? A bulldozer!`,
+`Why was the computer cold? It left its Windows open!`,
+`What do you call fake spaghetti? An impasta!`,
+`How do you organize an outer space party? You "planet"!`,
+`Why dont skeletons fight each other? They dont have the guts!`,
+`What do you call a can opener that doesnt work? A cant opener!`,
+`How do you catch a squirrel? Climb a tree and act like a nut!`,
+`What did the left eye say to the right eye? Between you and me, something smells!`,
+`Why did the scarecrow win an award? Because he was outstanding in his field!`,
+`How does a penguin build its house? Igloos it together!`]
+let para=document.getElementsByTagName('p')
+
+let appear=()=>{
+	let jokenum=Math.floor(Math.random()*101)
+document.body.firstElementChild.firstElementChild.innerHTML=(jokes[jokenum])
+}
+</script>
+</body>
+</html>

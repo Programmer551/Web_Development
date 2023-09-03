@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chapter 12</title>
+</head>
+<body>
+<script>
+	//----------------
+	// Destructuring 
+    //----------------
+	// let arr=[1,2,3,4,5]
+	// let [a,b,...c]=arr
+	// console.log(a,b,c)
+	//----------------
+	// Same work for objects
+    //----------------
+// let obj={
+// 	a:1,
+// 	b:2,
+// }
+// let {b}=obj
+// console.log(b)
+
+	// Spread Operators
+
+	// let arr=[1,2,3,4,5]
+	// let obj={...arr}
+	// console.log(obj)
+// let arr=[1,2,3,4,5]
+// function fun(a,b,c,d,e){
+// return a+b+c+d+e
+// }
+// console.log(fun(...arr))
+
+	// Chapter 12 Practice Set
+
+	// Question 1
+
+	// setTimeout(function(){
+	// 	console.log("Hello\n World")
+	// },2000)
+
+	// Question 2
+
+  // let avarage=(a,b,c)=>{
+  // 	let value= a +b + c
+  // 	return  value/3
+  // }	
+  // let arr=[1,2,3]
+  // console.log(avarage(...arr))
+
+	// Question 3
+
+	let n=prompt("Enter the seconds");
+	n=Number.parseInt(n);
+	(async function name(){
+			
+				setTimeout(function(){
+	                 return new Promise((reslove,reject)=>{
+                               reslove("Duraid")
+	                 				})
+				},1000)
+
+			name().then((value)=>{
+				console.log(value)
+			})
+		})
+
+</script>
+</body>
+</html>

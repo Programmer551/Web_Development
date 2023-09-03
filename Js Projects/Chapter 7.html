@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Chapter 7</title>
+</head id="head">
+<body id="body">
+	<!-- <table>
+
+		<caption>
+			Table
+		</caption>
+		<thead>
+		<tr>
+			<th>
+				Name
+			</th>
+			<th>
+				Class
+			</th>
+			<th>
+				Age
+			</th>
+		</tr>
+		</thead>
+		<tr>
+			<td>
+				M.Duraid
+			</td>
+			<td>
+				9th
+			</td>
+			<td>
+				13
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				M.Duraid
+			</td>
+			<td>
+				9th
+			</td>
+			<td>
+				13
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				M.Duraid
+			</td>
+			<td>
+				9th
+			</td>
+			<td>
+				13
+			</td>
+
+		</tr>
+	</table> -->
+	<div id="container" class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+	<script type="text/javascript">
+		
+/*console.log(document.body.lastChild)
+document.write("Hello")
+let b=document.body.childNodes
+Array.form = b;
+console.log(b)
+document.body.parentElement
+		document.body.firstChildleft
+		console.log(document.head.nextElementSibling)
+		let a=document.getElementById('hey')
+		hey.style.color="red"
+		let b =document.querySelectorAll("hello")
+		
+let a=document.body.firstElementChild
+let b=a.firstElementChild.firstElementChild*/
+// let table=document.body.firstElementChild
+// let row=document.body.firstElementChild.firstElementChild.nextElementSibling.firstElementChild
+		console.log(document.getElementById('container'))
+		console.log(document.querySelectorAll('#container'))
+		let a=document.getElementById("container")
+		let b=document.getElementById("body")
+		console.log(a.matches(`.box`))
+		console.log(a.closest(`#body`))
+		console.log(b.contains(`#container`))
+
+</script>
+</body>
+</html>

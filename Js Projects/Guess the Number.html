@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Guess the Number</title>
+	
+</head>
+<body>
+	
+<script>
+	let number=Math.floor(Math.random()*100)
+	let chances=0;
+	let score=100;
+	do{
+		var guess=prompt("Guess the number between 1 and 100");
+		guess=Number.parseInt(guess)
+		if (guess<number) {
+			alert("Number is bigger");
+
+		}
+		else if (guess>number) {
+			alert("Number is smaller");
+		}
+		chances=chances+1
+	}while(guess!==number)
+	score=score-chances
+	alert("Congratulation you guessed the correct number in "+chances+" chances and your score is "+score)
+</script>
+</body>
+</html>

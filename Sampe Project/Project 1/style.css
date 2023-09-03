@@ -1,0 +1,59 @@
+*{
+	margin:0;
+	padding:0;
+}
+header{
+	
+	
+
+}
+.h1-header{
+	color:cyan;
+	background-color:black;
+}
+.nav-ul{
+	background-color:black;
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	padding:20px;	
+}
+.navli{
+	text-decoration:none;
+	color:cyan;
+	padding:2px;
+	display: inline-block;
+	
+
+
+}
+
+ .background{
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	bottom: 43px;
+}
+.game-1{
+	display: inline-block;
+	border:2px solid black;
+	display: flex;
+
+}
+.minecraft-lorem{
+	flex-direction: column;
+
+	
+}
+.button{
+	position: relative;
+	top: 100px;
+	right: 190px;
+	flex-direction: column;
+
+}
+.img1{
+	flex-direction: column;
+}
+
+

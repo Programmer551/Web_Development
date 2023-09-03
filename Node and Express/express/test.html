@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .display-one{
+    padding-bottom: 3px;
+    font-size: 0.85rem;
+    position: relative;
+    transform: translateX(175%);
+    animation: moveout 15s infinite;
+}
+@keyframes moveout{
+    0% {
+        transform: translateX(175%) 
+   }
+    49% {
+        transform: translateX(175%) 
+   }
+    50%{
+        transform: translateX(-500%);
+   }
+    99%{
+        transform: translateX(-500%);
+   }
+    100% {
+        transform: translateX(175%);
+   }
+}
+
+.display-two{
+    position: relative;
+    font-size: 0.85rem;
+    transform: translateX(410%);
+    animation: movein 15s infinite;
+}
+@keyframes movein{
+    0% {
+        opacity:0;
+        transform: translateX(410%) 
+   }
+    49% {
+        opacity:0;
+        transform: translateX(410%) 
+   }
+    50%{
+        opacity:1;
+        transform: translateX(138%) 
+   }
+    99%{
+        opacity:1;
+        transform: translateX(138%);
+   }
+    100% {
+        opacity:0;
+        transform: translateX(410%);
+   }
+}
+.scroll-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.display {
+  padding-bottom: 3px;
+  font-size: 0.85rem;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.display-one {
+  transform: translateX(0);
+}
+
+.display-two {
+  transform: translateX(100%);
+}
+
+.scroll-bar.active .display-one {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+.scroll-bar.active .display-two {
+  opacity: 1;
+  transform: translateX(0);
+}
+    </style>
+</head>
+<body>
+        <div class="scroll-bar">
+                <span class="display display-one">Text 1</span>
+                <span class="display display-two">Text 2</span>
+              </div>
+</body>
+<script>const scrollBar = document.querySelector('.scroll-bar');
+        scrollBar.addEventListener('click', () => {
+          scrollBar.classList.toggle('active');
+        });
+</script>
+</html>

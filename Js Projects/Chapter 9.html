@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chapter 9</title>
+ 
+</head>
+
+<body>
+
+  <div id="div">
+
+  </div>
+</body>
+<script>
+  // Callbacks and Error Handling
+
+
+// let fun = (src, callback) => {
+//   let script = document.createElement("script");
+//   script.src = src;
+//   script.onload = function() {
+//     callback(null,script);
+//   }
+//   script.onerror = function() {
+//    callback(new Error,script)
+//    }
+//   document.body.append(script);
+// }
+// let hey = (error,script) => {
+//   if (error) {
+//     console.log("Script does not loaded");
+//   }
+//   else {
+//   console.log("Script lodded");
+// }
+// }
+// fun("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", hey);
+
+
+
+// JSON
+
+
+
+// const obj={
+//   name:"Duraid",
+//   class:"Ninth",
+//   subject:"Computer",
+// }
+// console.log(obj)
+// let strobj=JSON.stringify(obj)
+// strobj=strobj.replace("Ninth","Matric")
+// console.log(strobj)
+// let newobj=JSON.parse(strobj)
+// console.log(newobj)
+
+// Promises
+
+// let promise = new Promise((reslove, reject) => {
+//   console.log("I am inside promise")
+//   reslove("I am resloved")
+// })
+// console.log("Hello one")
+// console.log("Hello two")
+// console.log(promise)
+
+// .then and .catch
+
+// let a = prompt("Enter the name")
+// let p = new Promise(function fun(reslove, reject) {
+//   console.log("I am in the Promise")
+//   setTimeout(() => {
+//     if (a === "Duraid") {
+//       reslove("Welcome")
+//     }
+//     else {
+//       reject("You are wrong")
+//     }
+//   }, 2000)
+
+
+// })
+// p.then((value) => {
+//   console.log(value)
+
+
+// }, (error) => {
+//   console.log("Error Occured")
+// })
+// p.catch((error) => {
+//   console.log("Error Occured")
+// })
+
+
+// Channing in Promises using .then
+
+// let p1=new Promise((reslove,reject)=>{
+//   setTimeout(()=>{
+//      reslove("Shahmeer")
+//     console.log("Shahmeer is resloved")
+//   },2000)
+// }).then((value)=>{
+//   let p2=new Promise((reslove,reject)=>{
+
+//   setTimeout(()=>{
+
+//     reslove("Rafay")
+//     console.log("Rafay is resloved")
+//   },2000)
+//       })
+// })
+
+
+// Loadscript function using Promises
+
+
+// let loadscript = (src) => {
+//   return new Promise((reslove, reject) => {
+//     let script = document.createElement("script");
+
+//     script.src = src;
+
+//     script.onload = () => {
+//       reslove("Script Loaded")
+
+//     }
+//     script.onerror = () => {
+//       reject("Script does not loaded")
+//     }
+//     document.body.append(script)
+//   })
+
+
+// }
+// loadscript("httpss://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js").then((value) => {
+//   console.log(value)
+// }).catch((error) => {
+//   console.log(error)
+// })
+
+//Promise API
+
+// let p1=new Promise((reslove,reject)=>{
+//   setTimeout(()=>{
+//     reject("Hey I am resloved p1")
+//   },1000)
+// })
+// let p2=new Promise((reslove,reject)=>{
+//   setTimeout(()=>{
+//     reslove("Hey I am resloved p2")
+//   },2000)
+// })
+// let p3=new Promise((reslove,reject)=>{
+//   setTimeout(()=>{
+//     reslove("Hey I am resloved p3")
+//   },3000)
+// })
+// let allp=Promise.all([p1,p2,p3])
+// // let allp=Promise.allSettled([p1,p2,p3])
+// // let allp=Promise.race([p1,p2,p3])
+// // let allp=Promise.all([p1,p2,p3])
+// allp.then((value)=>{
+//   console.log(value)
+// })
+
+// Attaching Multiple Handlers to one Promise
+
+
+
+  // let p1=new Promise((reslove,reject)=>{
+  //   setTimeout(function fun(){
+  //     reslove("Hey I am resloved")
+  //   },3000)
+    
+  // })
+  // p1.then((value)=>{
+  //   console.log("p1 is done "+value)
+  // })
+  // p1.then((value)=>{
+  //   console.log("p1 is done "+value)
+  // })
+  //   p1.then((value)=>{
+  //   console.log("p1 is done "+value)
+  // })
+
+
+  // Async and Await
+
+
+ //  async function hey () {
+ //   let p1=new Promise((reslove,reject)=>{
+ //    setTimeout(function h(){
+ //             reslove("I am resloved inside p1")
+ //    },5000)
+ //   })
+ //    let p2=new Promise((reslove,reject)=>{
+ //    setTimeout(function he(){
+ //             reslove("I am resloved inside p2")
+ //    },10000)
+ //   })
+    
+ //     console.log("Fetching p1 data")
+ //    let p1data =await p1
+ //    console.log("p1data is Fetched")
+ //     console.log("Fetching p2 data")
+ //    let p2data=await p2
+ //     console.log("p2data is Fetched")
+ //    return[p1data,p2data]
+ //  }
+ // let a= hey()
+
+ // a.then((value)=>{
+ //  console.log(a)
+ // })
+// Multiple async function excute parelley
+
+
+
+
+  // Error handling using try and catch
+
+
+// let a="Hey I am a"
+  // try{
+  //   console.log(a)
+  // }
+  // catch{
+  //   console.log("a is not avaible")
+  // }
+  // We cannot add asynchorones functions inside try and catch
+
+
+  // Error object in Javascript
+
+
+
+  //   try{
+  //   console.log(a)
+  // }
+  // catch(error){
+  //   console.log(error.stack)
+  //   console.log(error.message)
+  //   console.log(error.name)
+  // }
+
+
+  // let age =prompt("Enter your age")
+  // age=Number.parseInt(age)
+  // if (age<1) {
+  //        throw new ReferenceError("Invalid age")
+    
+  // }
+  // else{
+
+  // }
+
+
+
+  // Finally clause in Javascript
+
+// Finally clause runs in every condition
+</script>
+</html>

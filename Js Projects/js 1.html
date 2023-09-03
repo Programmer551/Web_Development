@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script>
+
+	// For in loops
+
+	// const obj = {
+	// 	Duraid:100,
+	// 	Shahmeer:20,
+	// }
+	//  for(let a in obj){
+	// 	console.log(obj["Duraid"]);
+	// }
+
+	//For of Loops
+
+	// for(let b of "Duraid"){
+	// 	console.log(b);
+	// }
+
+    // While Loops
+
+	// let n =prompt("Enter the number");
+	// n=Number.parseInt(n);
+	// let i =-1;
+	// while(i<n){
+	// console.log(i+1);
+	// 	i++;
+	// }
+
+   //Do while loops
+
+// 	let n =2;
+// 	let i =10;
+// 	do{
+// 		console.log(i);
+// 		i++;
+	
+// }while(i<n);
+// 	let c =(f,s)=>{
+// return (f+s)
+// 	}
+	// let a =10;
+	// let b =10;
+// 	// function fun(y,z) {
+// 	// 	return (y+z);
+// 	// }
+	// console.log(c (a,b));
+	
+
+
+// Arrays
+	// Concat method
+// 	let a=[1,2,3,4,5]
+// 	let b=[11,12,13,14,15]
+// 	let c=[21,22,23,24,25]
+// 	let d=a.concat(b,c)
+// 	console.log(a)
+// 	console.log(b)
+// 	console.log(c)
+// 	console.log(d)
+	// Sort Method
+// 	let fun= (a,b)=>{
+// return (a-b)
+// 	}
+// 		let a=[113,32,53,554,995]
+// 		a.sort(fun)
+// 		console.log(a)
+	// Splice Method
+	// let a=[1,2,3,4,5]
+	// a.splice(1,0,10,20,30)
+	// console.log(a)
+	// Slice Method
+	// let a=[1,2,3,4,5]
+	// let b=a.slice(1,2)
+	// console.log(a)
+	// console.log(b)
+	// Reverse Method
+	// let a=[1,2,3,4,5]
+	// a.reverse()
+	// console.log(a)
+	// let num=[1,2,3,4,5,6,7,8,9]
+	// for(let a of num){
+	// 	console.log(a)
+	// }
+// for (let i = 0; i < num.length; i++) {
+// 	console.log(num[i])
+// }
+	let a=2;
+	let b=2;
+	
+	var bank_balence=0;
+	while(a==b){
+	let information1=prompt("Deposit Withdraw or Bank Balance");
+	// information1=Number.parseInt(information1)
+if (information1==="Deposit") {
+	let information2=prompt("Enter the number that you want to Deposit");
+	information2=Number.parseInt(information2)
+	bank_balence=bank_balence+information2
+}
+else if (information1==="Withdraw") {
+	let information3=prompt("Enter the number that you want to Withdraw")
+	information3=Number.parseInt(information3)
+	bank_balence=bank_balence-information3
+}
+
+else if (information1==="Bank Balance") {
+	alert("Your bank balence is "+bank_balence)
+}
+
+}
+
+
+</script>
+</body>
+</html>

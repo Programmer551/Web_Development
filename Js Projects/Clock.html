@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Clock</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 100vh;
+			width: 100vw;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			font-family: sans-serif;
+			background: repeating-linear-gradient(44deg, cyan, #392929 100px);
+			color: black;
+
+		}
+		div{
+			margin-bottom: 18px;
+		}
+		.div{
+			display: flex;
+			font-size: 80px;
+		}
+		h1{
+			font-size: 95px;
+			margin-bottom: 18px;
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		Time
+	</h1>
+<div class="div">
+	<div id="hours">
+		
+	</div>
+	<div id="Minutes">
+		
+	</div>
+	<div id="seconds">
+		
+	</div>
+</div>
+<h1>
+	Date
+</h1>
+<div class="div">
+	<div id="day">
+		
+	</div>
+	<div id="Month">
+		
+	</div>
+	<div id="year">
+		
+	</div>
+</div>
+<script type="text/javascript">
+	let div=document.getElementById('div')
+	let hours=document.getElementById('hours')
+	let minutes=document.getElementById('Minutes')
+	let seconds=document.getElementById('seconds')
+	let day=document.getElementById('day')
+	let month=document.getElementById('Month')
+	let year=document.getElementById('year')
+	
+	let time=setInterval(function hey() {
+	let D=new Date()
+	let a=D.getDate()
+	let b=D.getHours()
+	let c=D.getMinutes()
+	let d=D.getSeconds()
+	let e =D.getMonth()+1
+	let f=D.getYear()+1900
+	hours.innerHTML=b+":"
+	minutes.innerHTML=c+":"
+	seconds.innerHTML=d
+	day.innerHTML=a+"/"
+	month.innerHTML=e+"/"
+	year.innerHTML=f
+	},1000)
+	
+
+ </script>
+</body>
+</html>

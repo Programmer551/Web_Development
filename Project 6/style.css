@@ -1,0 +1,97 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+html{
+   height: 100vh;
+   width: 100vw;
+   background: url(Images/download2.png);
+   background-size: cover;
+   background-repeat:repeat-x;
+   overflow: hidden;
+}
+.body{
+   display: grid;
+    grid-template-columns: auto auto;
+        grid-column-gap: 600px;
+}
+#player{
+    background: url(Images/player2.png);
+    background-repeat: no-repeat;
+    height: 145px;
+    width:150px;
+    position: relative;
+    margin-top: 290px;
+    margin-left: 20px;
+    background-size:cover;
+}
+#enemy{
+       background: url(Images/enemy.png);
+    background-repeat: no-repeat;
+    height: 145px;
+    width:150px;
+background-size:cover;
+    position: relative;
+    margin-top: 290px;
+    margin-left: 200px;
+   
+
+}
+#gameover{
+       left: 500px;
+    bottom: 200px;
+    position: relative;
+    font-size: 7rem;
+    color: red;
+    font-family: cursive;
+    display: none;
+}
+.enemyanimation{
+    animation-name: ani2;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+.playeranimation{
+   animation-name: ani;
+   animation-duration: 1.5s;
+/*   animation-timing-function: ease-out;*/
+
+}
+@keyframes ani{
+   0%{
+      bottom: 0px;
+   }
+   50%{
+      bottom: 300px;
+   }
+  70%{
+   bottom: 200px;
+  }
+  90%{
+   bottom: 100px;
+  }
+   100%{
+      bottom: 0;
+   }
+}
+@keyframes ani2{
+   0%{
+    
+   }
+   1%{
+      right: 1vw;
+   }
+   90%{
+      right: 100vw;
+   }
+}
+.board{
+   position: absolute;
+    bottom: 822px;
+    margin-left: 16px;
+    font-size: 40px;
+    font-family: fantasy;
+}
+#number{
+   margin-left: 120px;
+}

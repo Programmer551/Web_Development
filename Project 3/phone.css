@@ -1,0 +1,38 @@
+
+	.title h1 {
+    font-size: 3rem;
+    
+}
+#home {
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.box{
+	width: 919px;
+	height: 310px;
+	margin-bottom: 20px;
+}
+.boxes {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+#center-box{
+	width: 920px;
+}
+#img2 {
+    
+    height: 134px;
+    width: 225px;
+}
+#navbar{
+	justify-content: center;
+}
+a{
+	font-size: 40px;
+}
+.title p{
+	    font-size: 38px;
+}

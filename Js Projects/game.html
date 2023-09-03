@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Shooting Game</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  <script>
+    // Get the canvas element
+    const canvas = document.getElementById("gameCanvas");
+    const context = canvas.getContext("2d");
+
+    // Define player variables
+    const playerWidth = 20;
+    const playerHeight = 20;
+    let playerX = canvas.width / 2 - playerWidth / 2;
+    let playerY = canvas.height - playerHeight - 10;
+    let playerSpeed = 5;
+
+    // Define bullet variables
+    const bulletWidth = 4;
+    const bulletHeight = 10;
+    let bulletX = 0;
+    let bulletY = 0;
+    let bulletSpeed = 7;
+    let bulletFired = false;
+
+    // Event listener for keyboard input
+    document.addEventListener("keydown", handleKeyPress);
+
+    // Function to handle key presses
+    function handleKeyPress(event) {
+      if (event.key === "ArrowLeft" && playerX > 0) {
+        playerX -= playerSpeed;
+      } else if (event.key === "ArrowRight" && playerX + playerWidth < canvas.width) {
+        playerX += playerSpeed;
+      } else if (event.key === " ") {
+        // Fire a bullet
+        if (!bulletFired) {
+          bulletX = playerX + playerWidth / 2 - bulletWidth / 2;
+          bulletY = playerY;
+          bulletFired = true;
+        }
+      }
+    }
+
+    // Function to update the game state
+    function update() {
+      // Clear the canvas
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the player
+      context.fillStyle = "blue";
+      context.fillRect(playerX, playerY, playerWidth, playerHeight);
+
+      // Update and draw the bullet if fired
+      if (bulletFired) {
+        bulletY -= bulletSpeed;
+
+        // Check if bullet hit the top edge
+        if (bulletY < 0) {
+          bulletFired = false;
+        } else {
+          // Draw the bullet
+          context.fillStyle = "red";
+          context.fillRect(bulletX, bulletY, bulletWidth, bulletHeight);
+        }
+      }
+
+      // Request the next animation frame
+      requestAnimationFrame(update);
+    }
+
+    // Start the game loop
+    update();
+  </script>
+</body>
+</html>

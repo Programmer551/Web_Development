@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<style type="text/css">
+     /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Logo + navbar
+            + login/social media + search bar   v
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+            .logo {
+                max-width: 280px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            .logo img {
+                width: 150%;
+            }
+            .logo .container-fluid {
+                height:135px;
+                background-color: #ffffff;
+                width: 100%;
+                padding-top:5px;
+            }
+
+            .nav .navbar {
+                background-color: #40517f;
+                list-style-type: none;
+                margin: 5;
+                padding: 5;
+                overflow: hidden;
+                position:relative; bottom:50px;
+            }
+            .nav .navbar li {
+                float: left;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #40517f;
+            }
+            .nav .navbar li a{
+                display: block;
+                width: 300px;
+                font-weight: none;
+                color: #40517f;
+                background-color: #B4C8E8;
+                text-align: center;
+                padding: 14px;
+                text-decoration: none;
+                font-family: 'Cabin', sans-serif;
+            }
+            .nav .navbar li a:hover {
+                color: #666666;
+                background-color: #CAD8EF;
+                FONT-WEIGHT:none;
+                font-family: 'Cabin', sans-serif;
+            }
+
+            .login .container-fluid {
+                background-color: #ffffff;
+                padding-top:5px;
+                z-index: 1;
+                height: 30px;
+            }
+            .login .pull-right li {
+                float: right; 
+                list-style: none;
+                overflow: hidden;
+            }
+            .login .pull-right li a {
+                display: inline;
+                padding: 10px;
+                color: #40517f;
+                font-size: 14px;
+                font-family: 'Cabin', sans-serif;
+            }
+            .login .pull-right li a:hover {
+                color: #B4C8E8;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-family: 'Cabin', sans-serif;
+            }
+            .login .pull-left li {
+                float: left;
+                list-style: none;
+                color: #666666;
+                font-size: 14px;
+                position: relative;
+                right: 50px;
+                overflow: hidden;
+
+            }
+            .login .pull-left li a {
+                display: inline;
+                padding: 10px;
+                opacity: .8;
+                font-family: 'Cabin', sans-serif;
+            }
+            .login .pull-left .facebook {
+                width: auto;
+                height: 20px;
+                vertical-align: sub;
+            }
+            .login .pull-left .twitter {
+                width: 20px;
+                height: auto;
+                vertical-align: sub;
+            }
+            .login .pull-left .pressreleases {
+                right: 3 px;
+                vertical-align: sub;
+                font-family: 'Cabin', sans-serif;
+            }
+            .searchbar {
+                background-color:#D1D1D1;
+                text-align:center;
+                position:relative;bottom:75px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #40517f;
+            }
+            .search {
+                width: 250px;
+                padding:8px 15px;
+                background-color:#FFFFFF;
+                border:3px solid #D1D1D1;
+                color: #666666;
+                font-family: 'Cabin', sans-serif;
+            }
+            .button {
+                position:relative;
+                padding:6px 15px;
+                left:-2px;
+                background-color:#40517f;
+                color:#ffffff;
+                opacity: .6;
+                font-family: 'Cabin', sans-serif;
+            }
+            .button:hover  {
+                background-color:#B4C8E8;
+                border-color: #B4C8E8;
+                color:#ffffff;
+                opacity: 1;
+                font-family: 'Cabin', sans-serif;
+            }
+
+            /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Logo + navbar +       ^
+            login/social media + search bar 
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Frontpage   v
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+            .frontpage {
+                position:relative; bottom:50px;
+            }
+            /*
+            Height and width for all of "frontpage" are just placeholders! 
+            Make sure to get right of them when content is added.
+            */
+            .frontpage .container-fluid .headliner {
+                background-color: #efefef;
+                height: 400px;
+            }
+
+            .frontpage .container-fluid .ad1 {
+                background-color: #efefef;
+                height: 400px;
+            }
+
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Frontpage   ^
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Footer   v
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+
+            footer {
+                background-color: #666666;  
+                text-align:center;
+            }
+
+            footer .top {
+                list-style: none;
+                color: #478bca;
+                font-family: 'Cabin', sans-serif;
+                font-size: 18px;
+                padding-top:15px;
+            }
+
+            footer .top li {
+                display: inline;
+
+            }
+
+            footer .top li:before {
+                content: " | ";
+            }
+
+            footer .top li:first-child:before {
+                content: none;
+            }
+
+            footer .middle1 {
+                list-style: none;
+                color: #478bca;
+                font-family: 'Cabin', sans-serif;
+                font-size: 18px;
+            }
+            footer .middle1 li {
+                display: inline;
+            }
+            footer .middle1 li:before {
+                content: " | ";
+            }
+            footer .middle1 li:first-child:before {
+                content: none;
+            }
+
+            footer .middle2 {
+                list-style: none;
+                color: #478bca;
+                font-family: 'Cabin', sans-serif;
+                font-size: 18px;
+            }
+
+            footer .middle2 li {
+                display: inline;
+            }
+            footer .middle2 li:before {
+                content: " | ";
+            }
+            footer .middle2 li:first-child:before {
+                content: none;
+            }
+            footer .bottom {
+                list-style: none;
+                color: #478bca;
+                font-family: 'Cabin', sans-serif;
+                font-size: 18px;
+            }
+
+            footer .bottom li {
+                display: inline;
+            }
+            footer .bottom li:before {
+                content: " | ";
+            }
+            footer .bottom li:first-child:before {
+                content: none;
+            }
+
+
+
+            footer .copyright {
+                background-color: #666666;
+                height: 60px;
+            }
+
+            footer .copyright p {
+                color: #D1D1D1;
+                padding-top: 10px;
+                font-size: 12px;
+            }
+
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Footer  ^
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+</style>
+<!--Logo + Social media and login + navbar + search bar-->
+    <div class="login">
+            <div class="container-fluid">
+                <ul class="pull-right">
+                    <li class="loginbutton"><a href="#">Log In</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                <ul class="pull-left">
+                    <li><a href="#"><img class="twitter" src="#"></a></li>
+                    <li><a href="#"><img class="facebook" src="#"></a></li>
+                    <li class="pressreleases"><a href="#">Press</a></li>
+                </ul>
+            </div>
+    </div>      
+
+    <div class="logo">
+        <div class="container-fluid">
+                <a href="#"><img class="logo" src="#" border="0"></a>
+        </div>
+    </div>
+
+    <div class="nav">
+        <ul class="navbar">
+            <li><a href="#">New</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Database</a></li>
+            <li><a href="#">News</a></li>
+        </ul>
+    </div>
+
+    <div class="searchbar">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <form>
+                    <input class="search" type="text" placeholder="Lookup symbol..." required>
+                    <input name="Submit" class="button" type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+ <!-- end Logo + Social media and login + navbar + search bar-->
+
+    <div class="frontpage">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="headliner">
+                        <h3>New releases</h3>
+                        <p>Learn everything you need to know. <p>
+                        <p><a href="#">Learn more</a></p>
+                    </div>
+                </div>  
+                <div class="col-md-3">
+                    <div class="ad1">
+                        <h1>Ad</h1>
+                    </div>
+                </div>
+            </div>  
+        </div>  
+    </div>  
+
+
+    <footer>
+        <div class="row">
+            <ul class="top">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul class="middle1">
+                <li><a href="#">Advertise</a></li>
+                <li><a href="#">Investor Relations</a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul class="middle2">
+                <li><a href="#">Application for Internship/Position</a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul class="bottom">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of use</a></li>
+                <li><a href="#">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>2014<p>
+        </div>
+    </footer>
+
+
+    </body>
+</html>
