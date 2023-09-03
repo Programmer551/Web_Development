@@ -48,15 +48,14 @@ app.get("/", (req, res) => {
 });
 app.get("/api/:ProductId", (req, res) => {
   let { ProductId } = req.params;
-    ProductId=Number.parseInt(ProductId)
+  ProductId = Number.parseInt(ProductId);
   console.log(req.params);
   const data2 = data.find((data) => data.id === ProductId);
-    if (!data2) {
-      return res.status(404).send("Page not Found")
-    }
+  if (!data2) {
+    return res.status(404).send("Page not Found");
+  }
   res.status(200).json(data2);
 });
-
-app.listen(3000,()=>{
-    console.log("App is running")
+app.listen(3000, () => {
+  console.log("App is running");
 });
