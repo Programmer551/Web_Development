@@ -34,6 +34,7 @@ const data = [
     desc: `I'm baby direct trade farm-to-table hell of, YOLO readymade raw denim venmo whatever organic gluten-free kitsch schlitz irony af flexitarian.`,
   },
 ];
+
 const people = [
   { id: 1, name: "john" },
   { id: 2, name: "peter" },
@@ -42,14 +43,20 @@ const people = [
   { id: 5, name: "emma" },
 ];
 
-
-app.get("/api/:ProductId", () => {
-  const { ProductId } = req.params;
-  const data2=data.find(()=>data.id===Number(ProductId))
-  if (!data3) {
-    return res.status(404).send("Page not Found")
-  } 
-    return res.status(200).json(data3);
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+app.get("/api/:ProductId", (req, res) => {
+  let { ProductId } = req.params;
+    ProductId=Number.parseInt(ProductId)
+  console.log(req.params);
+  const data2 = data.find((data) => data.id === ProductId);
+    if (!data2) {
+      return res.status(404).send("Page not Found")
+    }
+  res.status(200).json(data2);
 });
 
-app.listen(3000);
+app.listen(3000,()=>{
+    console.log("App is running")
+});
