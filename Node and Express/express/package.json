@@ -4,7 +4,7 @@
   "description": "",
   "main": "API.js",
   "scripts": {
-    "start": "nodemon custom_apis.js"
+    "start": "nodemon route.js"
   },
   "keywords": [],
   "author": "",
