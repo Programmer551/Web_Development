@@ -32,10 +32,9 @@ app.get("/api/:dataClass", (req, res) => {
 
   var data3 = data.find((data) => data.Class === dataClass);
   if (!data3) {
-    return res.status(404).send("Page not Found")
-  } 
-    return res.status(200).json(data3);
-  
+    return res.status(404).send("Page not Found");
+  }
+  return res.status(200).json(data3);
 });
 // app.get("/api/2", (req, res) => {
 //   const data3 = data.find((data) => data.Class==="Eight");
