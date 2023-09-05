@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-const looger = (req, res, next) => {
-  console.log("logger is running");
-  next();
-};
+const looger = require("./logger");
+// const looger = (req, res, next) => {
+//   console.log("logger is running");
+//   next();
+// };
 app.get("/", looger, (req, res) => {
   res.send("Home");
 });
