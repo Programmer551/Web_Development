@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400");
 *,
 ::after,
 ::before {
@@ -53,8 +53,8 @@
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   /* typography */
   --defaultFontSize: 87.5%;
-  --headingFont: 'Inconsolata', monospace;
-  --bodyFont: 'Montserrat', sans-serif;
+  --headingFont: "Inconsolata", monospace;
+  --bodyFont: "Montserrat", sans-serif;
   --smallText: 0.8em;
   /* rest */
   --backgroundColor: var(--grey-50);
@@ -271,7 +271,7 @@ button.block {
 .form-loading::before {
   background: var(--white);
   position: absolute;
-  content: '';
+  content: "";
   height: 100%;
   width: 100%;
   top: 0;
@@ -286,7 +286,7 @@ button.block {
 }
 
 .form-loading::after {
-  content: '';
+  content: "";
   position: absolute;
   top: calc(50% - 3rem);
   left: calc(50% - 3rem);
