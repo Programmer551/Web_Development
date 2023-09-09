@@ -18,3 +18,28 @@ hamburger.onclick = function () {
     hamburger3.classList.add("none");
   }
 };
+const data_to_send = {
+  name: "Duraid",
+};
+const data = fetch("http://localhost:3000/2", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data_to_send),
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+    // console.log(response.ok);
+    // console.log(response.status)
+  })
+  .then((response2) => {
+    console.log(response2);
+  })
+  .catch((error) => {
+    // Handle any errors that occurred during the fetch
+    console.error("There was a problem with the fetch operation:", error);
+  });
