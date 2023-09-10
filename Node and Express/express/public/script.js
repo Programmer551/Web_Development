@@ -22,11 +22,11 @@ const data_to_send = {
   name: "Duraid",
 };
 const data = fetch("http://localhost:3000/2", {
-  method: "PUT",
+  method: "DELETE",
   headers: {
     "Content-Type": "application/json",
   },
-  body: JSON.stringify(data_to_send),
+  // body: JSON.stringify(data_to_send),
 })
   .then((response) => {
     if (!response.ok) {
