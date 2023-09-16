@@ -7,3 +7,9 @@
 // If we want to add multiple documents fastly we can use the array technique for compass
 //db."collection name".find().sort({}) One for assending order and -1 for dessending order
 //db."collection name".find().limit()
+//db."collection name".updateOne({query},{$set:{updating values}})
+//db."collection name".updateOne({query},{$unset:{updating values}})
+//db."collection name".updateMany({},{$set:{updating values}})
+//db."collection name".updateMany({query:{$exists:true/false}},{$set:{updating values}})
+//db."collection name".deleteOne({query})
+//db."collection name".deleteMany({query})

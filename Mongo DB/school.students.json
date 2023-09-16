@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "6501c3434b6d311508591ccf"
+  },
+  "name": "Duraid",
+  "class": "Ninth",
+  "smart": true
+},
+{
+  "_id": {
+    "$oid": "6501c40a4b6d311508591cd1"
+  },
+  "name": "Shahmeer",
+  "class": "Eight",
+  "smart": false
+},
+{
+  "_id": {
+    "$oid": "65042bb4935cc1c9299bc7e4"
+  },
+  "name": "Harry",
+  "GPA": 9.4,
+  "Languages": [
+    "Javascript",
+    "Python",
+    "Java",
+    "C++"
+  ],
+  "adress": {
+    "country": "India",
+    "city": "Dehli"
+  },
+  "age": "",
+  "smart": true
+}]
