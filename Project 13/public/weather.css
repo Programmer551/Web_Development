@@ -2,7 +2,7 @@ body {
   background-color: cornflowerblue;
   height: 100vh;
 }
-navbar {
+.navbar {
   background-color: cyan !important;
 }
 .center {

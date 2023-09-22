@@ -4,7 +4,8 @@ const city = document.getElementById("city");
 const max = document.getElementById("max_temp");
 const min = document.getElementById("min_temp");
 const avg = document.getElementById("avg_temp");
-const fire = () => {
+const fire = (e) => {
+  e.preventDefault();
   let value = input.value;
   city.innerHTML = `${value}'s Temperature:`;
   let a = async () => {
@@ -15,7 +16,7 @@ const fire = () => {
         "X-RapidAPI-Key": "b622ff5086msh6b4f8c0757192c0p11800bjsn30e8ed1641df",
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
       },
-    };
+    };HTMLTemplateElement
 
     try {
       const response = await fetch(url, options);

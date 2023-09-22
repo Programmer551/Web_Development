@@ -13,3 +13,8 @@
 //db."collection name".updateMany({query:{$exists:true/false}},{$set:{updating values}})
 //db."collection name".deleteOne({query})
 //db."collection name".deleteMany({query})
+
+// Important Command
+// mongoimport "C:\Users\TF\OneDrive\Desktop\Thapa Technical MongoDB Import Files\sales.json" -d shop -c sales
+// mongoimport "C:\Users\TF\OneDrive\Desktop\Thapa Technical MongoDB Import Files\sales.json" -d shop -c sales --jsonArray
+// mongoexport  -d shop -c sales -o "C:\Users\TF\OneDrive\Desktop\Thapa Technical MongoDB Import Files\testing.json"
