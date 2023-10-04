@@ -1,8 +1,17 @@
+const Task = require("../models/Task");
 const home = (req, res) => {
   res.send("Home Page is here");
 };
-const create_task = (req, res) => {
-  res.json(req.body);
+const create_task = async (req, res) => {
+  try {
+    const task = await Task.create(req.body);
+    res.status(201).json({ task });
+  } catch (error) {
+    res.status(404).json(error);
+    console.log(error);
+  }
+
+  console.log("Task is created");
 };
 const get_task = (req, res) => {
   res.json({ id: req.params.id });
