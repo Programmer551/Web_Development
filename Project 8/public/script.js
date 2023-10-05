@@ -6,15 +6,15 @@ const reset = document.getElementById("reset");
 const value = input.value;
 let update = () => {
   v = input.value;
-  const data = {
-    data: input.value,
+  const name = {
+    name: input.value,
   };
   const options1 = {
     headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify(data),
+    body: JSON.stringify(name),
   };
   let li = document.createElement("li");
   li.classList.add("li");
@@ -53,11 +53,11 @@ fetch("http://localhost:3000/get", {
   })
   .then((response) => {
     let res = response;
+    console.log(res);
     res.forEach((element) => {
-      element.data;
       let li = document.createElement("li");
       li.classList.add("li");
-      let value = element.data;
+      let value = element.name;
       li.innerHTML = value;
       ul.append(li);
       console.log(element);

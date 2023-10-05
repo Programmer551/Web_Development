@@ -1,6 +1,11 @@
 const Task = require("../models/Task");
-const home = (req, res) => {
-  res.send("Home Page is here");
+const home = async (req, res) => {
+  try {
+    const tasks = await Task.find();
+    res.status(201).json(tasks);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 };
 const create_task = async (req, res) => {
   try {
@@ -13,8 +18,18 @@ const create_task = async (req, res) => {
 
   console.log("Task is created");
 };
-const get_task = (req, res) => {
-  res.json({ id: req.params.id });
+const get_task = async (req, res) => {
+  try {
+    const { id: taskId } = req.params;
+    const task = await Task.findOne({ _id: taskId });
+    console.log(task);
+    if (!task) {
+      return res.status(404).json({ sucess: false });
+    }
+    res.status(200).json({ task });
+  } catch (error) {
+    res.status(500).send(error);
+  }
 };
 const update_task = (req, res) => {
   res.send("update Task");
