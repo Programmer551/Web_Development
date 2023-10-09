@@ -1,34 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// Correct Method
+import "./style.css";
+const name = "Think and Grow Rich";
+const author = "Nepoleon Hill";
+// Books App
 
-const Greeting = () => {
+const BookList = () => {
   return (
     <>
-      <div className='hello'>
-        <h1>First React Component</h1>
+      <div className='title'>
+        <h1>Self Improvement Books</h1>
       </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-        ratione explicabo omnis aliquid hic obcaecati, dolore quia assumenda
-        beatae in soluta laboriosam.
+      <div className='booklist'>
+        <Book />
+        <Book />
+        <Book />
       </div>
-      <hr />
     </>
   );
 };
+const Book = () => {
+  return (
+    <div className='book'>
+      <Image></Image>
+      <Name></Name>
+      <Author></Author>
+    </div>
+  );
+};
 
-// Wrong Method
-
-// const Greeting = () => {
-//   return React.createElement("h1", {}, "Hello World");
-// };
-// function Greeting() {
-//   return React.createElement(
-//     "div",
-//     {},
-//     React.createElement("h1", {}, "Hello World")
-//   );
-// }
+const Image = () => {
+  return (
+    <img
+      src='./images/book-1.jpg'
+      alt='Book'
+      className='img'
+    />
+  );
+};
+const Name = () => {
+  return <h1 className='heading'>Name: {name}</h1>;
+};
+const Author = () => <h1 className='heading'>Author: {author}</h1>;
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Greeting />);
+root.render(<BookList />);
