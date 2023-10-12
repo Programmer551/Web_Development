@@ -27,6 +27,8 @@ const books = [
 const BookList = () => {
   return (
     <>
+      <button onClick={event1}>Event1</button>
+      <button onClick={event2}>Event2</button>
       <div className='title'>
         <h1>Self Improvement Books</h1>
       </div>
@@ -42,13 +44,15 @@ const BookList = () => {
     </>
   );
 };
-
+const event1 = () => {
+  console.log("event1");
+};
+const event2 = () => {
+  console.log("event2");
+};
 const Book = (props) => {
   const { src, author, name } = props;
-
-  const display = () => {
-    console.log(name);
-  };
+  console.log(props);
   return (
     <div className='book'>
       <img
@@ -58,7 +62,6 @@ const Book = (props) => {
       />
       <h1 className='heading'>Name: {name}</h1>
       <h1 className='heading'>Author: {author}</h1>
-      <button onClick={display}>Click ME</button>
     </div>
   );
 };

@@ -6,11 +6,13 @@ body {
   background-color: rgb(170, 162, 153);
 }
 .book {
+  height: 500px;
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color:#ffff;
+  background-color: #ffff;
   margin: 2px 20px;
   padding: 30px;
   border: 0px solid;
@@ -28,4 +30,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 20px 0px;
+}
+.img {
+  height: 400px;
 }
