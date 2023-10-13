@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = require("./routes/routes");
 const connectDB = require("./db/db");
-const port = 3000;
+const port = 5000;
 require("dotenv").config();
 app.use("/", express.static("public"));
 app.use(express.json());
