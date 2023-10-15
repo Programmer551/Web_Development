@@ -16,12 +16,13 @@ const BookList = () => {
         <h1>Self Improvement Books</h1>
       </div>
       <div className='booklist'>
-        {books.map((book) => {
+        {books.map((book, index) => {
           return (
             <Book
               {...book}
               key={book.id}
-              getBook={getBook}></Book>
+              getBook={getBook}
+              index={index}></Book>
           );
         })}
       </div>
