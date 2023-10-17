@@ -1,9 +1,8 @@
-import Stater from "./tutorial/01-useState/starter/02-useState-basics";
+import Stater from "./tutorial/02-useEffect/starter/01-code-example.jsx";
 
 function App() {
   return (
     <>
-      <Stater />
       <Stater />
     </>
   );
