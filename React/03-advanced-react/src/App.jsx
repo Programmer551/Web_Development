@@ -1,4 +1,4 @@
-import Stater from "./tutorial/02-useEffect/starter/01-code-example.jsx";
+import Stater from "./tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx";
 
 function App() {
   return (

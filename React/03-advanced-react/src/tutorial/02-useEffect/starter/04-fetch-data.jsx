@@ -1,6 +1,8 @@
-const url = 'https://api.github.com/users';
+// const url = "https://api.github.com/users";
+// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const FetchData = () => {
-  return <h2>fetch data example</h2>;
-};
+const url = "https://api.github.com/users";
+const FetchData = async () => {};
+
 export default FetchData;

@@ -20,7 +20,7 @@ let update = () => {
   li.classList.add("li");
   let value = input.value;
 
-  fetch("http://localhost:3000/add", options1)
+  fetch("http://localhost:5000/add", options1)
     .then((response) => {
       return response.json();
     })
@@ -33,7 +33,7 @@ let update = () => {
 };
 let finish = () => {
   ul.innerHTML = "";
-  fetch("http://localhost:3000/reset", {
+  fetch("http://localhost:5000/reset", {
     method: "POST",
   })
     .then((response) => {
@@ -45,7 +45,7 @@ let finish = () => {
 };
 add.addEventListener("click", update);
 reset.addEventListener("click", finish);
-fetch("http://localhost:3000/get", {
+fetch("http://localhost:5000/get", {
   method: "POST",
 })
   .then((response) => {
@@ -62,4 +62,7 @@ fetch("http://localhost:3000/get", {
       ul.append(li);
       console.log(element);
     });
+  })
+  .catch((error) => {
+    console.log("Something messed up" + error);
   });
