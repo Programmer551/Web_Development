@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const uri =
-  "mongodb+srv://Duraid:551Duraid551@mongodb.lq4ipzs.mongodb.net/school?retryWrites=true&w=majority";
+  "uri";
 mongoose.connect(uri);
 const data2 = {
   name: "Rafay",

@@ -9,8 +9,8 @@ const getAllItems = async (req, res) => {
 };
 const GetSingleItem = async (req, res) => {
   try {
-    await products.GetOne({ _id: req.body.id });
-    res.send({ sucess: true });
+    const data = await products.find({ _id: req.body.id });
+    res.send({ sucess: true, data: data });
   } catch (error) {
     console.log("Error with deleteSingleItem:" + error);
   }

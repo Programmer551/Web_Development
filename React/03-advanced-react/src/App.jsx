@@ -1,9 +1,12 @@
-import Stater from "./tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx";
+
+import Stater from "./tutorial/02-useEffect/starter/05-cleanup-function.jsx";
+import Navbar from "./tutorial/04-project-structure/starter/Navbar.jsx";
 
 function App() {
   return (
     <>
-      <Stater />
+      <Navbar />
+
     </>
   );
 }

@@ -67,10 +67,10 @@ body {
   font-weight: 400;
   line-height: 1.75;
   color: var(--textColor);
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; */
 }
 
 p {
