@@ -18,11 +18,11 @@ const addItemsInCart = async (req, res) => {
       price: item.price,
       detail: item.detail,
     });
-    res.send({ sucess: true });
+    res.send({ success: true });
   } catch (error) {
     console.log(error);
     console.log("Error in add items in cart");
-    res.send({ sucess: false, error: error }).status(404);
+    res.send({ success: false, error: error }).status(404);
   }
 };
 module.exports = { addItems, addItemsInCart };

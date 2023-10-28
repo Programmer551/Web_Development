@@ -6,7 +6,7 @@ const router = require("./routes/router");
 require("dotenv").config();
 app.use(express.json());
 app.use("/", router);
-(function () {
+const run = () => {
   try {
     connectDB(process.env.MONGO_URI);
     app.listen(port, () => {
@@ -15,4 +15,5 @@ app.use("/", router);
   } catch (error) {
     console.log(error);
   }
-})();
+};
+run();

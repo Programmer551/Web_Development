@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  height: 100vh;
+  flex-direction: column;
+}
+.inline {
+  display: inline-block;
+}
+.form {
+  flex-direction: row;
+}
+.btn-primary {
+  margin-left: 2px;
+}
+.btn-danger {
+  margin-left: 5px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+.alert {
+  display: flex;
+  min-width: 500px;
+}
+body{
+  background-color: aqua;
+}

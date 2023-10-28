@@ -2,16 +2,17 @@
   "name": "project-12",
   "version": "1.0.0",
   "description": "",
-  "main": "hello.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node --watch server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^7.6.2",
+    "mongoose": "^7.6.3",
     "nodemon": "^3.0.1"
   }
 }

@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState } from "react";
+import toggle from "./toggle";
 
 const ToggleExample = () => {
-  const [show, setShow] = useState(false);
+  const { show, tog } = toggle(true);
   return (
     <div>
       <h4>toggle custom hook</h4>
-      <button className='btn' onClick={() => setShow(!show)}>
+      <button
+        className='btn'
+        onClick={tog}>
         toggle
       </button>
       {show && <h4>some stuff</h4>}

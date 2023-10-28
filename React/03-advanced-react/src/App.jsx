@@ -1,14 +1,10 @@
-
-import Stater from "./tutorial/02-useEffect/starter/05-cleanup-function.jsx";
-import Navbar from "./tutorial/04-project-structure/starter/Navbar.jsx";
+import Stater from "./tutorial/09-context-api/starter/Navbar.jsx";
 
 function App() {
   return (
     <>
-      <Navbar />
-
+      <Stater />
     </>
   );
 }
-
 export default App;
