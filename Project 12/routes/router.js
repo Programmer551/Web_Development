@@ -12,14 +12,16 @@ const {
   deleteSingleCart,
   deleteAllCart,
 } = require("../controllers/delete");
+const { UpdateOneItem } = require("../controllers/patch");
 
 router.post("/add", addItems);
-router.post("/addInCart", addItemsInCart);
+router.post("/add/in/cart", addItemsInCart);
 router.get("/", getAllItems);
-router.get("/getAllCart", getAllCartItems);
-router.get("/GetSingle", GetSingleItem);
-router.delete("/DeleteAll", deleteAllItems);
-router.delete("/DeleteSingle", deleteSingleItem);
-router.delete("/DeleteSingleCart", deleteSingleCart);
-router.delete("/DeleteAllCart", deleteAllCart);
+router.get("/get/all/cart", getAllCartItems);
+router.get("/get/single", GetSingleItem);
+router.delete("/delete/all", deleteAllItems);
+router.delete("/delete/single", deleteSingleItem);
+router.delete("/delete/single/cart", deleteSingleCart);
+router.delete("/delete/all/cart", deleteAllCart);
+router.patch("/update/single/item/:name", UpdateOneItem);
 module.exports = router;
