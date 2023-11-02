@@ -1,4 +1,4 @@
-import Stater from "./tutorial/10-useReducer/starter/01-useReducer.jsx";
+import Stater from "./tutorial/11-performance/starter/04-react-18";
 
 function App() {
   return (

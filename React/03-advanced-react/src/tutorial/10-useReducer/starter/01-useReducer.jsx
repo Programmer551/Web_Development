@@ -1,30 +1,43 @@
 import React, { useReducer } from "react";
 import { data } from "../../../data";
-
+const Clear_List = "Clear_List";
+const Remove_Item = "Remove_Item";
+const Reset_List = "Reset_List";
 const DefaultState = {
   people: data,
 };
 const reducer = (state, action) => {
-  if (action.type == "Clear List") {
+  if (action.type == Clear_List) {
     return { ...state, people: [] };
   }
+  if (action.type == Remove_Item) {
+    console.log(state);
+    let newPeople = state.people.filter((person) => person.id !== action.id);
+    return { people: newPeople };
+  }
+  if (action.type == Reset_List) {
+    console.log(action);
+    return { people: data };
+  }
+  return state;
 };
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, DefaultState);
-  // console.log(state);
-  // const { people } = state;
-  // const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
-    // let newPeople = people.filter((person) => person.id !== id);
-    // setPeople(newPeople);
+    dispatch({
+      type: Remove_Item,
+      id: id,
+    });
   };
   const reset = () => {
-    // setPeople(data);
+    dispatch({
+      type: Reset_List,
+    });
   };
   const clearList = () => {
     dispatch({
-      type: "Clear List",
+      type: Clear_List,
     });
   };
   return (

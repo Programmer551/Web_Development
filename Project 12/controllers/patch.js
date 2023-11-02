@@ -13,7 +13,7 @@ const UpdateOneItem = async (req, res) => {
     console.log(data_to_send);
     await products.updateOne({ _id: req.body.id }, { data_to_send });
     data = await products.find({ _id: req.body.id });
-    res.json({ sucess: true, data });
+    res.json({ success: true, data });
   } catch (error) {
     console.log("Error is UpdateOneItem" + error);
     res.send("Error is UpdateOneItem" + error);

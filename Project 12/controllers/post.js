@@ -1,5 +1,6 @@
 const products = require("../model/Schema");
 const cart = require("../model/cart");
+const Users = require("../model/users");
 const addItems = async (req, res) => {
   try {
     await products.create(req.body);
@@ -25,4 +26,12 @@ const addItemsInCart = async (req, res) => {
     res.send({ success: false, error: error }).status(404);
   }
 };
-module.exports = { addItems, addItemsInCart };
+const createUser = (req, res) => {
+  try {
+    console.log(req.body);
+    res.json({ success: true });
+  } catch (error) {
+    res.send({ success: false, error: error }).status(404);
+  }
+};
+module.exports = { addItems, addItemsInCart, createUser };
