@@ -5,6 +5,7 @@ const {
   getAllItems,
   GetSingleItem,
   getAllCartItems,
+  getSingleCartItem,
 } = require("../controllers/get");
 const {
   deleteAllItems,
@@ -20,6 +21,7 @@ router.post("/create/user", createUser);
 router.get("/", getAllItems);
 router.get("/get/all/cart", getAllCartItems);
 router.get("/get/single", GetSingleItem);
+router.get("/get/single/cart", getSingleCartItem);
 router.delete("/delete/all", deleteAllItems);
 router.delete("/delete/single", deleteSingleItem);
 router.delete("/delete/single/cart", deleteSingleCart);

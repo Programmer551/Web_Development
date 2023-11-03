@@ -6,9 +6,13 @@ const schema = new mongoose.Schema({
     trim: true,
   },
   password: {
-    type: [Number, String],
+    type: String,
     required: [true, "Must Provide the Password!"],
     trim: true,
+  },
+  id: {
+    required: [false],
+    type: Array,
   },
 });
 module.exports = mongoose.model("Users", schema);

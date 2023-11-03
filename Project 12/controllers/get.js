@@ -16,7 +16,7 @@ const GetSingleItem = async (req, res) => {
     console.log("Error with deleteSingleItem:" + error);
   }
 };
-const getAllCartItems = async (req,res) => {
+const getAllCartItems = async (req, res) => {
   try {
     let data = await cart.find();
     res.json(data);
@@ -24,4 +24,18 @@ const getAllCartItems = async (req,res) => {
     console.log("Error with getAllCartItems:" + error);
   }
 };
-module.exports = { getAllItems, GetSingleItem, getAllCartItems };
+const getSingleCartItem = async (req, res) => {
+  try {
+    console.log(req.body);
+    let data = await cart.findOne({ _id: req.body.id });
+    res.json(data);
+  } catch (error) {
+    console.log("Error with getAllSingleCart:" + error);
+  }
+};
+module.exports = {
+  getAllItems,
+  GetSingleItem,
+  getAllCartItems,
+  getSingleCartItem,
+};
