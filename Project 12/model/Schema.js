@@ -15,5 +15,10 @@ const schema = new mongoose.Schema({
     required: [false],
     trim: true,
   },
+  src: {
+    type: String,
+    required: [true, "Must Provide the image source"],
+    trim: true,
+  },
 });
 module.exports = mongoose.model("Products", schema);

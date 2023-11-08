@@ -3,9 +3,21 @@ const app = express();
 const port = 3000;
 const connectDB = require("./db/connect");
 const router = require("./routes/router");
+const cors = require("cors");
 require("dotenv").config();
 app.use(express.json());
+app.use(cors());
 app.use("/", router);
+app.get("*", (req, res) => {
+  res.send("Not Found").status(404);
+});
+app.delete("*", (req, res) => {
+  res.send("Not Found").status(404);
+});
+app.post("*", (req, res) => {
+  res.send("Not Found").status(404);
+});
+
 const run = () => {
   try {
     connectDB(process.env.MONGO_URI);

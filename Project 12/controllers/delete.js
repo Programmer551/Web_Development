@@ -1,19 +1,28 @@
 const products = require("../model/Schema");
-const cart = require("../model/cart");
+const Users = require("../model/users");
 const deleteAllItems = async (req, res) => {
   try {
     await products.deleteMany({ __v: 0 });
     res.send({ success: true });
   } catch (error) {
-    console.log("Error with deleteAllItems:" + error);
+    res.json({ "Error with deleteAllItems:": error }).status(404);
   }
 };
 const deleteAllCart = async (req, res) => {
   try {
-    await cart.deleteMany({ __v: 0 });
-    res.send({ success: true });
+    const { user } = req.body;
+    const person = await Users.findOne({
+      name: user.name,
+      password: user.password,
+    });
+    if (person) {
+      await Users.findByIdAndUpdate(person, { id: [] });
+      res.send({ success: true });
+      return;
+    }
+    res.send("Person is not Avaible");
   } catch (error) {
-    console.log("Error with deleteAllCart:" + error);
+    res.json({ "Error with deleteAllCart:": error }).status(404);
   }
 };
 const deleteSingleItem = async (req, res) => {
@@ -21,15 +30,28 @@ const deleteSingleItem = async (req, res) => {
     await products.deleteOne({ _id: req.body.id });
     res.send({ success: true });
   } catch (error) {
-    console.log("Error with deleteSingleItem:" + error);
+    res.json({ "Error with deleteSingleItem:": error }).status(404);
   }
 };
 const deleteSingleCart = async (req, res) => {
   try {
-    await cart.deleteOne({ _id: req.body.id });
-    res.send({ success: true });
+    const { user, id } = req.body;
+
+    const person = await Users.findOne({
+      name: user.name,
+      password: user.password,
+    });
+    if (person) {
+      const updatedIds = person.id.filter((personId) => personId != id);
+
+      await Users.findByIdAndUpdate(person._id, { $set: { id: updatedIds } });
+
+      res.send({ success: true });
+      return;
+    }
+    res.send("Person is not Avaible");
   } catch (error) {
-    console.log("Error with deleteSingleCart:" + error);
+    res.send({"Error with deleteSingleCart:" : error}).status(404);
   }
 };
 module.exports = {

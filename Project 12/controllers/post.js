@@ -1,13 +1,20 @@
 const products = require("../model/Schema");
-const cart = require("../model/cart");
 const Users = require("../model/users");
 const addItems = async (req, res) => {
   try {
-    await products.create(req.body);
-    let data = await products.find(req.body);
-    res.json(data);
+    const { admin, item } = req.body;
+    const person = await Users.findOne({
+      name: admin.name,
+      password: admin.password,
+    });
+    if (person) {
+      await products.create(item);
+      res.json({ success: true });
+      return;
+    }
+    res.send("This is not Admin");
   } catch (error) {
-    console.log("Error with addItems:" + error);
+    res.json({ "Error with addItems:": error }).status(404);
   }
 };
 const addItemsInCart = async (req, res) => {
@@ -18,7 +25,7 @@ const addItemsInCart = async (req, res) => {
     if (product) {
       const { id } = product;
       let id2 = id;
-      console.log(product);
+
       const person = await Users.findOne({
         name: user.name,
         password: user.password,
@@ -39,24 +46,51 @@ const addItemsInCart = async (req, res) => {
       } else {
         res.send({ success: false, info: "User is not available " });
       }
-      // console.log(person);
     } else {
-      res.send({ success: false, info: "Item is not in the Products" });
+      res.json({ success: false, info: "Item is not in the Products" });
     }
   } catch (error) {
-    console.log(error);
-    console.log("Error in add items in cart");
-    res.send({ success: false, error: error }).status(404);
+    res.json({ success: false, error: error }).status(404);
   }
 };
 const createUser = async (req, res) => {
   try {
+    let data = await Users.findOne(req.body);
     console.log(req.body);
+    // console.log(data);
+    if (data) {
+      res.json({
+        success: false,
+        info: "Username and password is already in use",
+      });
+      return;
+    }
     await Users.create(req.body);
 
     res.json({ success: true });
   } catch (error) {
-    res.send({ success: false, error: error }).status(404);
+    res.json({ success: false, error: error }).status(404);
   }
 };
-module.exports = { addItems, addItemsInCart, createUser };
+const CheckUser = async (req, res) => {
+  try {
+    
+    const { user } = req.body;
+    const person = await Users.findOne({
+      name: user.name,
+      password: user.password,
+    });
+    if (person) {
+      if (person.name == "Admin" && person.password == "Secret") {
+        res.json({ success: true, type: "Admin" });
+        return;
+      }
+      res.json({ success: true, type: "Normal" });
+      return;
+    }
+    res.json({ success: false });
+  } catch (error) {
+    res.json({ "Error with CheckUser:": error }).status(404);
+  }
+};
+module.exports = { addItems, addItemsInCart, createUser, CheckUser };

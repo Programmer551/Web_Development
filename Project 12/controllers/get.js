@@ -1,11 +1,11 @@
 const products = require("../model/Schema");
-const cart = require("../model/cart");
+const Users = require("../model/users");
 const getAllItems = async (req, res) => {
   try {
     let data = await products.find();
     res.json(data);
   } catch (error) {
-    console.log("Error with getAllItems:" + error);
+    res.json({ "Error with getAllItems:": error }).status(404);
   }
 };
 const GetSingleItem = async (req, res) => {
@@ -13,29 +13,27 @@ const GetSingleItem = async (req, res) => {
     const data = await products.find({ _id: req.body.id });
     res.send({ success: true, data: data });
   } catch (error) {
-    console.log("Error with deleteSingleItem:" + error);
+    res.json({ "Error with GetSingleItem:": error }).status(404);
   }
 };
 const getAllCartItems = async (req, res) => {
   try {
-    let data = await cart.find();
-    res.json(data);
+    const { user } = req.body;
+    const person = await Users.findOne({
+      name: user.name,
+      password: user.password,
+    });
+    if (person) {
+      const { id } = person;
+      res.json(id);
+    }
   } catch (error) {
-    console.log("Error with getAllCartItems:" + error);
+    res.json({ "Error with getAllCartItems:": error }).status(404);
   }
 };
-const getSingleCartItem = async (req, res) => {
-  try {
-    console.log(req.body);
-    let data = await cart.findOne({ _id: req.body.id });
-    res.json(data);
-  } catch (error) {
-    console.log("Error with getAllSingleCart:" + error);
-  }
-};
+
 module.exports = {
   getAllItems,
   GetSingleItem,
   getAllCartItems,
-  getSingleCartItem,
 };

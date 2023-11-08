@@ -40,7 +40,7 @@ import "./style.css";
 const books = [
   {
     name: "Think and Grow Rich",
-    author: "Nepolean Hill",
+    author: "Nepoleon Hill",
     src: "./images/book-1.jpg",
     id: 1,
   },
