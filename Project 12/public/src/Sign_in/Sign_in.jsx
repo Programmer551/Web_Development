@@ -30,6 +30,8 @@ const Sign_in = () => {
         } else {
           setValue("Go to shopping area");
           setValue2("/main");
+          sessionStorage.setItem("name", name);
+          sessionStorage.setItem("password", password);
           // setValue3("Incorrect username or password");
         }
       })

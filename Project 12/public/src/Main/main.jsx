@@ -110,6 +110,7 @@ const Main = () => {
               src={src}
               detail={detail}
               price={price}
+              id={_id}
             />
           );
         })}

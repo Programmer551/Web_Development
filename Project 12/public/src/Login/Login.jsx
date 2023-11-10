@@ -39,6 +39,8 @@ const Login = () => {
         }
         setValue("Go to shopping page");
         setValue2("/main");
+        sessionStorage.setItem("name",name)
+        sessionStorage.setItem("password",password)
         // setValue3("This account not exists");
       })
       .catch((error) => {

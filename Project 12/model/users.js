@@ -14,5 +14,9 @@ const schema = new mongoose.Schema({
     required: [false],
     type: Array,
   },
+  Purchase: {
+    required: [false],
+    type: Array,
+  },
 });
 module.exports = mongoose.model("Users", schema);

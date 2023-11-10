@@ -53,6 +53,42 @@ const addItemsInCart = async (req, res) => {
     res.json({ success: false, error: error }).status(404);
   }
 };
+const addItemsInPurchase = async (req, res) => {
+  try {
+    const { user, id } = req.body;
+    const product = await products.findOne({ _id: id });
+
+    if (product) {
+      const { id } = product;
+      let id2 = id;
+
+      const person = await Users.findOne({
+        name: user.name,
+        password: user.password,
+      });
+
+      if (person) {
+        let { Purchase } = person;
+        const item = await Users.findOneAndUpdate(
+          {
+            name: user.name,
+            password: user.password,
+          },
+          {
+            Purchase: [...Purchase, id2],
+          }
+        );
+        res.send({ success: true, item: item });
+      } else {
+        res.send({ success: false, info: "User is not available " });
+      }
+    } else {
+      res.json({ success: false, info: "Item is not in the Products" });
+    }
+  } catch (error) {
+    res.json({ success: false, error: error }).status(404);
+  }
+};
 const createUser = async (req, res) => {
   try {
     let data = await Users.findOne(req.body);
@@ -74,7 +110,6 @@ const createUser = async (req, res) => {
 };
 const CheckUser = async (req, res) => {
   try {
-    
     const { user } = req.body;
     const person = await Users.findOne({
       name: user.name,
@@ -93,4 +128,10 @@ const CheckUser = async (req, res) => {
     res.json({ "Error with CheckUser:": error }).status(404);
   }
 };
-module.exports = { addItems, addItemsInCart, createUser, CheckUser };
+module.exports = {
+  addItems,
+  addItemsInCart,
+  createUser,
+  CheckUser,
+  addItemsInPurchase,
+};
