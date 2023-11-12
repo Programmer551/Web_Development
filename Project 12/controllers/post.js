@@ -1,5 +1,8 @@
 const products = require("../model/Schema");
 const Users = require("../model/users");
+const bcrypt = require("bcrypt");
+
+require("dotenv").config();
 const addItems = async (req, res) => {
   try {
     const { admin, item } = req.body;
@@ -20,6 +23,7 @@ const addItems = async (req, res) => {
 const addItemsInCart = async (req, res) => {
   try {
     const { user, id } = req.body;
+    const { password } = user;
     const product = await products.findOne({ _id: id });
 
     if (product) {
@@ -28,21 +32,24 @@ const addItemsInCart = async (req, res) => {
 
       const person = await Users.findOne({
         name: user.name,
-        password: user.password,
       });
 
       if (person) {
-        let { id } = person;
-        const item = await Users.findOneAndUpdate(
-          {
-            name: user.name,
-            password: user.password,
-          },
-          {
-            id: [...id, id2],
-          }
-        );
-        res.send({ success: true, item: item });
+        const compare = await bcrypt.compare(password, person.password);
+        if (compare) {
+          let { id } = person;
+          const item = await Users.findOneAndUpdate(
+            {
+              name: user.name,
+            },
+            {
+              id: [...id, id2],
+            }
+          );
+          res.send({ success: true, item: item });
+          return;
+        }
+        res.send({ success: false, info: "Password is incorrect" });
       } else {
         res.send({ success: false, info: "User is not available " });
       }
@@ -56,6 +63,7 @@ const addItemsInCart = async (req, res) => {
 const addItemsInPurchase = async (req, res) => {
   try {
     const { user, id } = req.body;
+    const { password } = user;
     const product = await products.findOne({ _id: id });
 
     if (product) {
@@ -64,21 +72,27 @@ const addItemsInPurchase = async (req, res) => {
 
       const person = await Users.findOne({
         name: user.name,
-        password: user.password,
       });
 
       if (person) {
-        let { Purchase } = person;
-        const item = await Users.findOneAndUpdate(
-          {
-            name: user.name,
-            password: user.password,
-          },
-          {
-            Purchase: [...Purchase, id2],
-          }
-        );
-        res.send({ success: true, item: item });
+        const compare = await bcrypt.compare(password, person.password);
+        if (compare) {
+          let { Purchase } = person;
+          const item = await Users.findOneAndUpdate(
+            {
+              name: user.name,
+            },
+            {
+              Purchase: [...Purchase, id2],
+            }
+          );
+          res.send({ success: true, item: item });
+          return;
+        }
+        res.send({
+          success: false,
+          info: "User is not Password is incorrect ",
+        });
       } else {
         res.send({ success: false, info: "User is not available " });
       }
@@ -91,17 +105,20 @@ const addItemsInPurchase = async (req, res) => {
 };
 const createUser = async (req, res) => {
   try {
-    let data = await Users.findOne(req.body);
-    console.log(req.body);
-    // console.log(data);
-    if (data) {
+    const { name, password } = req.body;
+    const allUsers = await Users.find();
+    const user = allUsers.find((user) => user.name == name);
+
+    if (user) {
       res.json({
         success: false,
-        info: "Username and password is already in use",
+        info: "Incorrect username or password",
       });
       return;
     }
-    await Users.create(req.body);
+    const newPassword = await bcrypt.hash(password, 10);
+
+    await Users.create({ name, password: newPassword });
 
     res.json({ success: true });
   } catch (error) {
@@ -111,18 +128,26 @@ const createUser = async (req, res) => {
 const CheckUser = async (req, res) => {
   try {
     const { user } = req.body;
+    const { password } = user;
     const person = await Users.findOne({
       name: user.name,
-      password: user.password,
     });
-    if (person) {
-      if (person.name == "Admin" && person.password == "Secret") {
-        res.json({ success: true, type: "Admin" });
-        return;
-      }
+    if (!person) {
+      res.json({ success: false });
+      return;
+    }
+
+    if (person.name == "Admin" && person.password == "Secret") {
+      res.json({ success: true, type: "Admin" });
+      return;
+    }
+    const compare = await bcrypt.compare(password, person.password);
+    if (compare) {
       res.json({ success: true, type: "Normal" });
       return;
     }
+    res.json({ success: false });
+
     res.json({ success: false });
   } catch (error) {
     res.json({ "Error with CheckUser:": error }).status(404);

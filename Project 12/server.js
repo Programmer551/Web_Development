@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+require("dotenv").config();
+const port = process.env.PORT || 3000;
 const connectDB = require("./db/connect");
 const router = require("./routes/router");
 const cors = require("cors");
-require("dotenv").config();
+
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(express.static("./public/dist"));
 app.use("/", router);
 app.get("*", (req, res) => {
   res.send("Not Found").status(404);

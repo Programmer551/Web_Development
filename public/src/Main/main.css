@@ -1,0 +1,44 @@
+:root {
+  --theme: #2a04c8;
+  --color: white;
+}
+.navbar > ul {
+  display: flex;
+}
+.navbar {
+  height: 100px;
+  background: none;
+  display: flex;
+  align-content: space-around;
+}
+.nav-li {
+  margin: 10px 65px;
+  list-style-type: none;
+  color: var(--color);
+}
+.nav-li:hover {
+  cursor: pointer;
+}
+.title {
+  color: var(--color);
+}
+/* .main{
+
+} */
+.form-control {
+  width: 40vw;
+}
+.cart:hover {
+  cursor: pointer;
+}
+.card-img {
+  width: 45vw;
+  height: 359px;
+}
+.card {
+  display: inline-block;
+  margin: 20px;
+}
+.black {
+  color: white;
+}
