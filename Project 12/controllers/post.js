@@ -148,7 +148,7 @@ const CheckUser = async (req, res) => {
     }
     res.json({ success: false });
 
-    res.json({ success: false });
+    // res.json({ success: false });
   } catch (error) {
     res.json({ "Error with CheckUser:": error }).status(404);
   }

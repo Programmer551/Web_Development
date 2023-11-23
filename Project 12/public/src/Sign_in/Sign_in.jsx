@@ -46,7 +46,7 @@ const Sign_in = () => {
       <form
         className='container center column'
         onSubmit={submit}>
-        <h1>Create User</h1>
+        <h1 className="headings">Create User</h1>
         <div className='mb-3 '>
           <label
             htmlFor='exampleInputEmail1'
@@ -78,7 +78,7 @@ const Sign_in = () => {
         </div>
 
         <button
-          type='submit'
+          // type='submit'
           className='btn btn-secondary custom'>
           Create new User
         </button>

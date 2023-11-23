@@ -12,7 +12,7 @@ const Home = () => {
     <div
       className='center full-height column custom'
       style={divStyle}>
-      <h1 className='heading custom'>Welcome to my Best E-Commerce Website</h1>
+      <h1 className='headings custom my-3'>Welcome to my Best E-Commerce Website</h1>
       <Sign_in />
     </div>
   );

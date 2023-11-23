@@ -39,8 +39,8 @@ const Login = () => {
         }
         setValue("Go to shopping page");
         setValue2("/main");
-        sessionStorage.setItem("name",name)
-        sessionStorage.setItem("password",password)
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("password", password);
         // setValue3("This account not exists");
       })
       .catch((error) => {
@@ -55,8 +55,8 @@ const Login = () => {
       <form
         className='container center column'
         onSubmit={submit}>
-        <h1>Login</h1>
-        <div className='mb-3 '>
+        <h1 className='headings'>Login</h1>
+        <div className='mb-3'>
           <label
             htmlFor='exampleInputEmail1'
             className='form-label'>
@@ -86,11 +86,8 @@ const Login = () => {
           />
         </div>
 
-        <button
-          type='submit'
-          className='btn btn-secondary custom'>
-          Login
-        </button>
+        <button className='btn btn-secondary custom'>Login</button>
+
         <Link to={Value2}>
           <button className='btn btn-secondary custom'>{value}</button>
         </Link>

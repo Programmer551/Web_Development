@@ -28,7 +28,7 @@ const Main = () => {
       className='main full-height'
       style={divStyle}>
       <nav className='navbar'>
-        <h1 className='title'>E-Commerce</h1>
+        <h1 className='title headings'>E-Commerce</h1>
         <ul className='nav-ul'>
           <li className='nav-li'>Home</li>
           <li className='nav-li'>About</li>

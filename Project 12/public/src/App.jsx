@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./utils.css";
@@ -7,7 +6,7 @@ import Home from "./Home/Home";
 
 import Login from "./Login/Login";
 import Main from "./Main/main";
-
+import Details from "./details/details";
 const App = () => {
   return (
     <BrowserRouter>
@@ -23,7 +22,11 @@ const App = () => {
         />
         <Route
           path='/main'
-          element={<Main />}></Route>
+          element={<Main />}
+        />
+        <Route
+          path='/details'
+          element={<Details />}></Route>
       </Routes>
     </BrowserRouter>
   );
