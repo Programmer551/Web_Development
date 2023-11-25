@@ -6,7 +6,7 @@ import cart_image2 from "../Images/cart_image2.jpg";
 import Cards from "../Cards/cards";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import Footer from "../Footer/Footer";
 const Main = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -21,6 +21,8 @@ const Main = () => {
   const divStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
+    // width:"200vw",
+
     backgroundRepeat: "no-repeat",
   };
   return (
@@ -31,9 +33,13 @@ const Main = () => {
         <h1 className='title headings'>E-Commerce</h1>
         <ul className='nav-ul'>
           <li className='nav-li'>Home</li>
+          <div className='line'></div>
           <li className='nav-li'>About</li>
+          <div className='line'></div>
           <li className='nav-li'>Contact us</li>
+          <div className='line'></div>
           <li className='nav-li'>Services</li>
+          <div className='line'></div>
         </ul>
       </nav>
       <div className='search center'>
@@ -102,7 +108,6 @@ const Main = () => {
       <div className='collection center'>
         {data.map((item) => {
           const { _id, name, src, detail, price } = item;
-
           return (
             <Cards
               key={_id}
@@ -115,6 +120,7 @@ const Main = () => {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -13,12 +13,11 @@
 }
 .nav-li {
   margin: 10px 65px;
+  margin-bottom: 2px;
   list-style-type: none;
   color: var(--color);
 }
-.nav-li:hover {
-  cursor: pointer;
-}
+
 .title {
   color: var(--color);
 }
@@ -41,4 +40,21 @@
 }
 .black {
   color: white;
+}
+.nav-li:hover {
+  /* padding: 20px; */
+  cursor: pointer;
+
+  border-bottom: 1px solid blue;
+  /* -ms-text-underline-position: ; */
+  display: inline;
+  transition-property: all;
+  transition-duration: 1s;
+  /* transition-timing-function: ; */
+}
+.collection {
+  margin-top: 500px;
+}
+.main {
+  height: 80vh;
 }

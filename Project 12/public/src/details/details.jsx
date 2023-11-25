@@ -1,3 +1,4 @@
+import "./details.css"
 const Details = () => {
   const id = sessionStorage.getItem("id");
   const price = sessionStorage.getItem("price");
