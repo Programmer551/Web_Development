@@ -6,14 +6,18 @@ import cart_image2 from "../Images/cart_image2.jpg";
 import Cards from "../Cards/cards";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+
 const Main = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("http://localhost:3000/get/all");
       const data = await response.json();
       setData(data);
+      setIsLoading(false);
     };
     fetchData();
   }, []);
@@ -29,19 +33,7 @@ const Main = () => {
     <div
       className='main full-height'
       style={divStyle}>
-      <nav className='navbar'>
-        <h1 className='title headings'>E-Commerce</h1>
-        <ul className='nav-ul'>
-          <li className='nav-li'>Home</li>
-          <div className='line'></div>
-          <li className='nav-li'>About</li>
-          <div className='line'></div>
-          <li className='nav-li'>Contact us</li>
-          <div className='line'></div>
-          <li className='nav-li'>Services</li>
-          <div className='line'></div>
-        </ul>
-      </nav>
+      <Navbar></Navbar>
       <div className='search center'>
         <Link to='/'>
           <button className='btn btn-primary'>Sign</button>
@@ -57,25 +49,30 @@ const Main = () => {
             placeholder='Search Here'
             aria-describedby='passwordHelpBlock'
           />
+
           <input
             type='submit'
             className='btn btn-secondary'
             value='Search'
           />
         </form>
+        <Link to='/cart'>
         <img
           src={cart_logo}
           alt='Cart Logo'
           width='45px'
           className='cart'
         />
+         </Link>
       </div>
       <div className='card text-bg-dark'>
-        <img
-          src={cart_image}
-          className='card-img'
-          alt='Cart Image'
-        />
+     
+          <img
+            src={cart_image}
+            className='card-img'
+            alt='Cart Image'
+          />
+       
         <div className='card-img-overlay'>
           <h5 className='card-title black'>
             Welcome to the world best E-Commerce Website
@@ -106,21 +103,29 @@ const Main = () => {
         </div>
       </div>
       <div className='collection center'>
-        {data.map((item) => {
-          const { _id, name, src, detail, price } = item;
-          return (
-            <Cards
-              key={_id}
-              name={name}
-              src={src}
-              detail={detail}
-              price={price}
-              id={_id}
-            />
-          );
-        })}
+        {isLoading ? (
+          <div
+            className='spinner-border text-primary'
+            role='status'>
+            <span className='visually-hidden'>Loading...</span>
+          </div>
+        ) : (
+          data.map((item) => {
+            const { _id, name, src, detail, price } = item;
+            return (
+              <Cards
+                key={_id}
+                name={name}
+                src={src}
+                detail={detail}
+                price={price}
+                id={_id}
+              />
+            );
+          })
+        )}
       </div>
-      <Footer />
+      {isLoading ? null : <Footer />}
     </div>
   );
 };

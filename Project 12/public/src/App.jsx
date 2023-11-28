@@ -7,6 +7,10 @@ import Home from "./Home/Home";
 import Login from "./Login/Login";
 import Main from "./Main/main";
 import Details from "./details/details";
+import About from "./About/About";
+import Contact_us from "./Contact us/Contact_us";
+import Services from "./Services/Services";
+import Cart from "./Cart/Cart";
 const App = () => {
   return (
     <BrowserRouter>
@@ -26,7 +30,24 @@ const App = () => {
         />
         <Route
           path='/details'
-          element={<Details />}></Route>
+          element={<Details />}
+        />
+        <Route
+          path='/about'
+          element={<About />}
+        />
+        <Route
+          path='/services'
+          element={<Services />}
+        />
+        <Route
+          path='/contact'
+          element={<Contact_us />}
+        />
+        <Route
+          path='/cart'
+          element={<Cart />}
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -42,16 +42,14 @@
   color: white;
 }
 .nav-li:hover {
-  /* padding: 20px; */
   cursor: pointer;
-
+  color: aqua;
   border-bottom: 1px solid blue;
-  /* -ms-text-underline-position: ; */
   display: inline;
   transition-property: all;
-  transition-duration: 1s;
-  /* transition-timing-function: ; */
+  transition-duration: 0.3s;
 }
+
 .collection {
   margin-top: 500px;
 }

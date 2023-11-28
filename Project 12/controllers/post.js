@@ -153,10 +153,35 @@ const CheckUser = async (req, res) => {
     res.json({ "Error with CheckUser:": error }).status(404);
   }
 };
+const getAllCartItems = async (req, res) => {
+  try {
+    const { user } = req.body;
+
+    const person = await Users.findOne({
+      name: user.name,
+    });
+    if (person) {
+      const compare = await bcrypt.compare(user.password, person.password);
+      console.log(compare);
+      if (compare) {
+        const { id } = person;
+        res.json({ id });
+        return;
+      }
+      res.json({ message: "Password is incorrect", success: false });
+      return;
+    }
+    res.json({ message: "User is not Avaiable", sucess: false });
+    return;
+  } catch (error) {
+    res.json({ "Error with getAllCartItems:": error }).status(404);
+  }
+};
 module.exports = {
   addItems,
   addItemsInCart,
   createUser,
   CheckUser,
   addItemsInPurchase,
+  getAllCartItems,
 };
