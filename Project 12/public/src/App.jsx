@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./utils.css";
 import Home from "./Home/Home";
@@ -11,6 +10,7 @@ import About from "./About/About";
 import Contact_us from "./Contact us/Contact_us";
 import Services from "./Services/Services";
 import Cart from "./Cart/Cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <BrowserRouter>
