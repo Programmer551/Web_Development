@@ -57,22 +57,22 @@ const Main = () => {
           />
         </form>
         <Link to='/cart'>
-        <img
-          src={cart_logo}
-          alt='Cart Logo'
-          width='45px'
-          className='cart'
-        />
-         </Link>
+          <img
+            src={cart_logo}
+            alt='Cart Logo'
+            width='45px'
+            className='cart'
+          />
+        </Link>
       </div>
       <div className='card text-bg-dark'>
-     
-          <img
-            src={cart_image}
-            className='card-img'
-            alt='Cart Image'
-          />
-       
+
+        <img
+          src={cart_image}
+          className='card-img'
+          alt='Cart Image'
+        />
+
         <div className='card-img-overlay'>
           <h5 className='card-title black'>
             Welcome to the world best E-Commerce Website
