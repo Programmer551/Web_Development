@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const { verify } = require("jsonwebtoken");
+const { isAuth } = require("./isAuth.js");
 const cookieparser = require("cookie-parser");
 const { hash, compare } = require("bcrypt");
 const cors = require("cors");
@@ -60,9 +61,25 @@ app.post("/login", async (req, res) => {
     res.json(error).status(404);
   }
 });
-app.post("logut", (req, res) => {
+app.post("/logut", (req, res) => {
   res.clearCookie("refershToken");
   return res.send("Logged out successfully");
+});
+app.post("/protected", async (req, res) => {
+  try {
+    // console.log(req);
+    const userId = isAuth(req, res);
+
+    if (userId !== null) {
+      res.send({
+        data: "This is protected data.",
+      });
+    }
+  } catch (err) {
+    res.send({
+      error: `${err}`,
+    });
+  }
 });
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
