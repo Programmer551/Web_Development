@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const port = 3000;
+const helmet = require("helmet");
 const connectDB = require("./db/connect");
 const router = require("./routes/router");
 const cors = require("cors");
-
+app.use(helmet());
 app.use(express.json());
 app.use(cors());
 
@@ -15,7 +16,7 @@ const run = () => {
   try {
     connectDB(process.env.MONGO_URI);
     app.listen(port, () => {
-      console.log(`Server is running on localhost:${port}`);
+      console.log(`Server is running on http://localhost:${port}`);
     });
   } catch (error) {
     console.log(error);
