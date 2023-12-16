@@ -1,0 +1,13 @@
+const express = require("express");
+const router = express.Router();
+const { register, login, form } = require("../controllers/post");
+const {} = require("../controllers/get");
+const {} = require("../controllers/delete");
+const { validate } = require("../middlewares/validata-middleware.js");
+const { signupSchema } = require("../validators/auth-validator.js");
+const { loginSchema } = require("../validators/login-validator");
+// router.post("/register", validate(signupSchema), register);
+router.route("/register").post(validate(signupSchema), register);
+router.route("/login").post(validate(loginSchema), login);
+router.route("/contact").post(form);
+module.exports = router;

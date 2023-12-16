@@ -1,0 +1,26 @@
+.box {
+  display: flex;
+  justify-content: center;
+  /* box-sizing: border-box; */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 60vw;
+}
+.card-img-top {
+  height: 20vh;
+}
+.card {
+  margin: 10px;
+}
+body {
+  background: url("/Images/Notes.avif");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.notes {
+  position: relative;
+  /* top: 20px; */
+}
