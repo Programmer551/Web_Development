@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Cart.css";
@@ -6,6 +5,7 @@ import Cards from "../Cards/cards";
 const Cart = () => {
   const name = sessionStorage.getItem("name");
   const password = sessionStorage.getItem("password");
+  const [isLoading, setisLoading] = useState(true);
   const [data, setData] = useState([]);
   const fetchCartIds = async () => {
     try {
@@ -33,9 +33,12 @@ const Cart = () => {
     try {
       const items = [];
       for (const id of cartIds) {
-        const response = await axios.get(`http://localhost:3000/get/single/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/get/single/${id}`,
+        );
         items.push(response.data);
       }
+      setisLoading(false);
       return items;
     } catch (error) {
       console.log("Error fetching items:", error);
@@ -61,30 +64,34 @@ const Cart = () => {
 
   return (
     <>
-      <div>Hello</div>
-      {data.length > 0 ? data.map((item) => {
-        const { _id, name, src, detail, price } = item.data[0];
-        return (
-          <Cards
-            key={_id}
-            name={name}
-            src={src}
-            detail={detail}
-            price={price}
-            id={_id}
-          />
-        );
-      }) : null}
+      <h1>Cart Items</h1>
+      {isLoading ? (
+        <div
+          className='spinner-border text-primary'
+          role='status'>
+          <span className='visually-hidden'>Loading...</span>
+        </div>
+      ) : data.length > 0 ? (
+        data.map((item) => {
+          const { _id, name, src, detail, price } = item.data[0];
+          return (
+            <>
+              <Cards
+                key={_id}
+                name={name}
+                src={src}
+                detail={detail}
+                price={price}
+                id={_id}
+              />
+            </>
+          );
+        })
+      ) : (
+        <h1 className='heading font-serif'>No Items in the Cart</h1>
+      )}
     </>
-  )
-
-
+  );
 };
 
 export default Cart;
-
-
-
-
-
-

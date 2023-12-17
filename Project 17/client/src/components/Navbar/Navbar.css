@@ -1,0 +1,14 @@
+header nav ul {
+  display: flex;
+  margin-left: 50vw;
+}
+header nav {
+  display: flex;
+}
+.nav-li {
+  list-style-type: none;
+  margin: 10px 20px;
+}
+.nav-li a {
+  text-decoration: none;
+}

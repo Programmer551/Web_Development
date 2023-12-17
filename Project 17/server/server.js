@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const port = 3000;
+const port = 5000;
 const helmet = require("helmet");
 const connectDB = require("./db/connect");
 const router = require("./routes/router");
