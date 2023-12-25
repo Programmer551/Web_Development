@@ -66,4 +66,12 @@ const form = async (req, res) => {
     res.json({ success: false, error: error });
   }
 };
-module.exports = { register, login, form };
+const user = async (req, res) => {
+  try {
+    const UserData = req.user;
+    res.json({ UserData });
+  } catch (error) {
+    res.json({ success: false, error: error }).status(500);
+  }
+};
+module.exports = { register, login, form, user };

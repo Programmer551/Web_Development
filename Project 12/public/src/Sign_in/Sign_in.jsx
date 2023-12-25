@@ -46,7 +46,7 @@ const Sign_in = () => {
       <form
         className='container center column'
         onSubmit={submit}>
-        <h1 className="headings">Create User</h1>
+        <h1 className='headings'>Create User</h1>
         <div className='mb-3 '>
           <label
             htmlFor='exampleInputEmail1'

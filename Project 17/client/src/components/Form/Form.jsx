@@ -11,7 +11,27 @@ const Form = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(name, email, phone, password);
+          fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              password,
+              phone,
+            }),
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         }}>
         <input
           type='text'

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Cart.css";
 import Cards from "../Cards/cards";
+import "./Cart.css";
 const Cart = () => {
   const name = sessionStorage.getItem("name");
   const password = sessionStorage.getItem("password");
@@ -64,32 +65,35 @@ const Cart = () => {
 
   return (
     <>
-      <h1>Cart Items</h1>
-      {isLoading ? (
-        <div
-          className='spinner-border text-primary'
-          role='status'>
-          <span className='visually-hidden'>Loading...</span>
-        </div>
-      ) : data.length > 0 ? (
-        data.map((item) => {
-          const { _id, name, src, detail, price } = item.data[0];
-          return (
-            <>
-              <Cards
-                key={_id}
-                name={name}
-                src={src}
-                detail={detail}
-                price={price}
-                id={_id}
-              />
-            </>
-          );
-        })
-      ) : (
-        <h1 className='heading font-serif'>No Items in the Cart</h1>
-      )}
+      <h1 className='cart-heading'>Cart Items</h1>
+      <div className='center wrap'>
+        {isLoading ? (
+          <div
+            className='spinner-border text-primary'
+            role='status'>
+            <span className='visually-hidden'>Loading...</span>
+          </div>
+        ) : data.length > 0 ? (
+          data.map((item) => {
+            const { _id, name, src, detail, price } = item.data[0];
+            return (
+              <div>
+                <Cards
+                  key={_id}
+                  name={name}
+                  src={src}
+                  detail={detail}
+                  price={price}
+                  id={_id}
+                  remove={true}
+                />
+              </div>
+            );
+          })
+        ) : (
+          <h1 className='heading font-serif'>No Items in the Cart</h1>
+        )}
+      </div>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./utils.css";
 import Home from "./Home/Home";
-// import Sign_in from "./Sign_in/Sign_in";
+import Orders from "./Orders/Orders";
 
 import Login from "./Login/Login";
 import Main from "./Main/main";
@@ -47,6 +47,10 @@ const App = () => {
         <Route
           path='/cart'
           element={<Cart />}
+        />
+        <Route
+          path='/orders'
+          element={<Orders />}
         />
       </Routes>
     </BrowserRouter>

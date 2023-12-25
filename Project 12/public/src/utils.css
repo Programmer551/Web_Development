@@ -36,3 +36,9 @@
 .headings {
   font-size: 2rem;
 }
+.wrap {
+  flex-wrap: wrap;
+}
+/* .navbar {
+  background: gray !important;
+} */

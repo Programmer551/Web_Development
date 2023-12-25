@@ -10,11 +10,11 @@
   font-style: italic;
   background: slategray;
 }
-.ser{
+.ser {
   font-size: 1.5rem;
   margin: 20px 0px;
-  
+  text-align: center;
 }
-.small_ser{
-  font-size: 1,2rem;
+.small_ser {
+  font-size: 1, 2rem;
 }

@@ -1,5 +1,6 @@
 const products = require("../model/Schema");
 const Users = require("../model/users");
+const bcrypt = require("bcrypt");
 const deleteAllItems = async (req, res) => {
   try {
     await products.deleteMany({ __v: 0 });
@@ -39,19 +40,21 @@ const deleteSingleCart = async (req, res) => {
 
     const person = await Users.findOne({
       name: user.name,
-      password: user.password,
     });
+
     if (person) {
-      const updatedIds = person.id.filter((personId) => personId != id);
-
-      await Users.findByIdAndUpdate(person._id, { $set: { id: updatedIds } });
-
-      res.send({ success: true });
-      return;
+      const compare = bcrypt.compare(user.password, person.password);
+      console.log("hello");
+      if (compare) {
+        const updatedIds = person.id.filter((personId) => personId != id);
+        await Users.findByIdAndUpdate(person._id, { $set: { id: updatedIds } });
+        res.send({ success: true });
+        return;
+      }
     }
-    res.send("Person is not Avaible");
+    res.send("Person is not Avaible").status(404);
   } catch (error) {
-    res.send({"Error with deleteSingleCart:" : error}).status(404);
+    res.send({ "Error with deleteSingleCart:": error }).status(404);
   }
 };
 module.exports = {

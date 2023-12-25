@@ -7,6 +7,7 @@ const {
   CheckUser,
   addItemsInPurchase,
   getAllCartItems,
+  contact_us,
 } = require("../controllers/post");
 const {
   getAllItems,
@@ -21,6 +22,7 @@ const {
 } = require("../controllers/delete");
 
 router.post("/add", addItems);
+router.post("/form", contact_us);
 router.post("/check/user", CheckUser);
 router.post("/add/in/cart", addItemsInCart);
 router.post("/create/user", createUser);

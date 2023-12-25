@@ -16,21 +16,7 @@ const GetSingleItem = async (req, res) => {
     res.json({ "Error with GetSingleItem:": error }).status(404);
   }
 };
-// const getAllCartItems = async (req, res) => {
-//   try {
-//     const { user } = req.body;
-//     const person = await Users.findOne({
-//       name: user.name,
-//       password: user.password,
-//     });
-//     if (person) {
-//       const { id } = person;
-//       res.json(id);
-//     }
-//   } catch (error) {
-//     res.json({ "Error with getAllCartItems:": error }).status(404);
-//   }
-// };
+
 const getAllPurchaseItems = async (req, res) => {
   try {
     const { user } = req.body;
@@ -50,6 +36,6 @@ const getAllPurchaseItems = async (req, res) => {
 module.exports = {
   getAllItems,
   GetSingleItem,
-  // getAllCartItems,
+
   getAllPurchaseItems,
 };

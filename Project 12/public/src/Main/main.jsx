@@ -3,6 +3,7 @@ import backgroundImage from "../Images/background.jpg";
 import cart_logo from "../Images/cart_logo.png";
 import cart_image from "../Images/cart_image.jpg";
 import cart_image2 from "../Images/cart_image2.jpg";
+import orders_image from "../Images/orders.webp";
 import Cards from "../Cards/cards";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -12,11 +13,13 @@ import Footer from "../Footer/Footer";
 const Main = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("http://localhost:3000/get/all");
       const data = await response.json();
       setData(data);
+      setData2(data);
       setIsLoading(false);
     };
     fetchData();
@@ -28,6 +31,24 @@ const Main = () => {
     // width:"200vw",
 
     backgroundRepeat: "no-repeat",
+  };
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+
+    let updated = data2.map((obj) => {
+      const isVisible = obj.name.toLowerCase().includes(value);
+
+      if (isVisible) {
+        return obj;
+      }
+      return null;
+    });
+    console.log(updated);
+    updated = updated.filter(
+      (item) => item !== null && typeof item === "object",
+    );
+
+    setData(updated);
   };
   return (
     <div
@@ -47,14 +68,15 @@ const Main = () => {
             id='inputPassword5'
             className='form-control'
             placeholder='Search Here'
+            onChange={handleSearch}
             aria-describedby='passwordHelpBlock'
           />
 
-          <input
+          {/* <input
             type='submit'
             className='btn btn-secondary'
             value='Search'
-          />
+          /> */}
         </form>
         <Link to='/cart'>
           <img
@@ -64,9 +86,17 @@ const Main = () => {
             className='cart'
           />
         </Link>
+        <Link to='/orders'>
+          <img
+            src={orders_image}
+            alt='Orders Logo'
+            width='45px'
+            style={{ "margin-left": "10px" }}
+            className='orders'
+          />
+        </Link>
       </div>
       <div className='card text-bg-dark'>
-
         <img
           src={cart_image}
           className='card-img'
