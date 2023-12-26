@@ -2,6 +2,8 @@ import backgroundImage from "../Images/background.jpg";
 import "./Login.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const divStyle = {
   backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
@@ -11,10 +13,10 @@ const divStyle = {
 const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [value, setValue] = useState("Don't have an account");
-  const [Value2, setValue2] = useState("/");
+  const value = "Don't have an account";
+  const Value2 = "/";
   const [Value3, setValue3] = useState("");
-
+  const navigate = useNavigate();
   const submit = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/check/user", {
@@ -34,11 +36,30 @@ const Login = () => {
       })
       .then((response) => {
         if (!response.success) {
-          setValue3("This account don't exists");
+          toast("This account don't exists", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
           return;
         }
-        setValue("Go to shopping page");
-        setValue2("/main");
+
+        navigate("/main");
+        toast("Logged in Successfully", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         sessionStorage.setItem("name", name);
         sessionStorage.setItem("password", password);
         // setValue3("This account not exists");

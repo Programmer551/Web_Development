@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./Sign_in.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Sign_in = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [value, setValue] = useState("Already have an account");
@@ -26,10 +29,28 @@ const Sign_in = () => {
       .then((response) => {
         console.log(response);
         if (!response.success) {
-          setValue3("Incorrect username or password");
+          toast("Invalid username or password", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
         } else {
-          setValue("Go to shopping area");
-          setValue2("/main");
+          toast("Account created successfully", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          navigate("/main");
           sessionStorage.setItem("name", name);
           sessionStorage.setItem("password", password);
           // setValue3("Incorrect username or password");

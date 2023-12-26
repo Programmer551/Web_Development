@@ -1,4 +1,5 @@
-import "./details.css"
+import "./details.css";
+import { toast } from "react-toastify";
 const Details = () => {
   const id = sessionStorage.getItem("id");
   const price = sessionStorage.getItem("price");
@@ -8,21 +9,48 @@ const Details = () => {
   const fire = async () => {
     const userName = sessionStorage.getItem("name");
     const UserPassword = sessionStorage.getItem("password");
-    const response = await fetch("http://localhost:3000/add/in/purchase", {
-      method: "POST",
-      body: JSON.stringify({
-        user: {
-          name: userName,
-          password: UserPassword,
+    try {
+      const response = await fetch("http://localhost:3000/add/in/purchase", {
+        method: "POST",
+        body: JSON.stringify({
+          user: {
+            name: userName,
+            password: UserPassword,
+          },
+          id: id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
         },
-        id: id,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    console.log(data);
+      });
+      const data = await response.json();
+      console.log(data);
+      if (data.success) {
+        toast("Item is Purchased Successfully", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast("Item is already Purchased", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   const cart = async () => {
     const userName = sessionStorage.getItem("name");
@@ -41,7 +69,29 @@ const Details = () => {
       },
     });
     const data = await response.json();
-    console.log(data);
+    if (data.success) {
+      toast("Item is added to cart Successfully", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast("Item is already in the cart", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
 
   return (

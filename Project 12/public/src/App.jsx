@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./utils.css";
 import Home from "./Home/Home";
 import Orders from "./Orders/Orders";

@@ -1,5 +1,5 @@
 const products = require("../model/Schema");
-const Users = require("../model/users");
+// const Users = require("../model/users");
 const getAllItems = async (req, res) => {
   try {
     let data = await products.find();
@@ -17,25 +17,7 @@ const GetSingleItem = async (req, res) => {
   }
 };
 
-const getAllPurchaseItems = async (req, res) => {
-  try {
-    const { user } = req.body;
-    const person = await Users.findOne({
-      name: user.name,
-      password: user.password,
-    });
-    if (person) {
-      const { Purchase } = person;
-      res.json(Purchase);
-    }
-  } catch (error) {
-    res.json({ "Error with getAllPurchaseItems:": error }).status(404);
-  }
-};
-
 module.exports = {
   getAllItems,
   GetSingleItem,
-
-  getAllPurchaseItems,
 };

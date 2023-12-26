@@ -2,6 +2,7 @@ import "./Contact_us.css";
 import Footer from "../Footer/Footer.jsx";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 const Contact_us = () => {
   const name = sessionStorage.getItem("name");
   const password = sessionStorage.getItem("password");
@@ -15,7 +16,29 @@ const Contact_us = () => {
       body: JSON.stringify({ name, password, message }),
     });
     const data = await response.json();
-    console.log(data);
+    if (data.success) {
+      toast("Form Submitted Successfully", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast(data.message, {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
   return (
     <>

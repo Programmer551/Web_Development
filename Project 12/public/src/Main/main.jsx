@@ -91,8 +91,8 @@ const Main = () => {
             src={orders_image}
             alt='Orders Logo'
             width='45px'
-            style={{ "margin-left": "10px" }}
-            className='orders'
+            style={{ "marginLeft": "10px" }}
+            // className='orders'
           />
         </Link>
       </div>

@@ -86,6 +86,16 @@ const addItemsInPurchase = async (req, res) => {
         const compare = await bcrypt.compare(password, person.password);
         if (compare) {
           let { Purchase } = person;
+          const same = Purchase.find((id) => id == id2);
+          if (same) {
+            res
+              .json({
+                success: false,
+                message: "Item is already bought",
+              })
+              .status(400);
+            return;
+          }
           const item = await Users.findOneAndUpdate(
             {
               name: user.name,
@@ -196,11 +206,32 @@ const contact_us = async (req, res) => {
     res.json({ "Error with Contact us:": error }).status(404);
   }
 };
+
+const getAllPurchaseItems = async (req, res) => {
+  try {
+    const { user } = req.body;
+    const person = await Users.findOne({
+      name: user.name,
+    });
+    if (person) {
+      const compare = bcrypt.compare(person.password, user.password);
+      if (!compare) {
+        res.json({ success: false, message: "Invalid credentials" });
+        return;
+      }
+      const { Purchase } = person;
+      res.json({ success: true, id: Purchase });
+    }
+  } catch (error) {
+    res.json({ "Error with getAllPurchaseItems:": error }).status(404);
+  }
+};
 module.exports = {
   addItems,
   addItemsInCart,
   createUser,
   CheckUser,
+  getAllPurchaseItems,
   addItemsInPurchase,
   getAllCartItems,
   contact_us,

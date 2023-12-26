@@ -7,13 +7,10 @@ const {
   CheckUser,
   addItemsInPurchase,
   getAllCartItems,
+  getAllPurchaseItems,
   contact_us,
 } = require("../controllers/post");
-const {
-  getAllItems,
-  GetSingleItem,
-  getAllPurchaseItems,
-} = require("../controllers/get");
+const { getAllItems, GetSingleItem } = require("../controllers/get");
 const {
   deleteAllItems,
   deleteSingleItem,
@@ -29,7 +26,7 @@ router.post("/create/user", createUser);
 router.post("/add/in/purchase", addItemsInPurchase);
 router.post("/get/all/cart", getAllCartItems);
 router.get("/get/all", getAllItems);
-router.get("/get/all/purchase", getAllPurchaseItems);
+router.post("/get/all/purchase", getAllPurchaseItems);
 router.get("/get/single/:id", GetSingleItem);
 router.delete("/delete/all", deleteAllItems);
 router.delete("/delete/single", deleteSingleItem);

@@ -2,6 +2,7 @@
 import "./cards.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 const Cards = ({ name, price, src, detail, id, remove }) => {
   const [none, setNone] = useState("");
   const deleteItem = async () => {
@@ -23,6 +24,18 @@ const Cards = ({ name, price, src, detail, id, remove }) => {
       });
       const data = await response.json();
       console.log(data);
+      if (data) {
+        toast("Item is removed from the cart Successfully", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
       setNone("none");
     } catch (error) {
       console.log(error);

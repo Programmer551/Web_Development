@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Cart.css";
 import Cards from "../Cards/cards";
-import "./Cart.css";
+
 const Cart = () => {
   const name = sessionStorage.getItem("name");
   const password = sessionStorage.getItem("password");
@@ -22,7 +22,9 @@ const Cart = () => {
           },
         }),
       });
+
       const data = await res.json();
+
       return data && data.id ? data.id : [];
     } catch (error) {
       console.log("Error fetching cart IDs:", error);
