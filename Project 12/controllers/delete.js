@@ -44,7 +44,7 @@ const deleteSingleCart = async (req, res) => {
 
     if (person) {
       const compare = bcrypt.compare(user.password, person.password);
-      console.log("hello");
+
       if (compare) {
         const updatedIds = person.id.filter((personId) => personId != id);
         await Users.findByIdAndUpdate(person._id, { $set: { id: updatedIds } });

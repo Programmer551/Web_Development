@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/", router);
-
+app.use(express.static("./public/dist"));
 const run = () => {
   try {
     connectDB(process.env.MONGO_URI);
@@ -22,3 +22,4 @@ const run = () => {
   }
 };
 run();
+

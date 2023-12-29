@@ -1,4 +1,4 @@
-import "./details.css";
+
 import { toast } from "react-toastify";
 const Details = () => {
   const id = sessionStorage.getItem("id");

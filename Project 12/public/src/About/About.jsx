@@ -1,4 +1,4 @@
-import "./About.css";
+
 import Footer from "../Footer/Footer.jsx";
 import backgroundImage from "../Images/background.jpg";
 import Navbar from "../Navbar/Navbar";
