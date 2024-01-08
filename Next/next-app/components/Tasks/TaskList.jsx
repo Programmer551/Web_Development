@@ -19,11 +19,11 @@ const TaskList = async () => {
             {task.content}
           </h2>
           <div className='flex gap-6 items-center'>
-            {/* <Link
+            <Link
               href={`/tasks/${task.id}`}
               className='btn btn-accent btn-xs'>
               edit
-            </Link> */}
+            </Link>
             <DeleteForm id={task.id} />
           </div>
         </li>

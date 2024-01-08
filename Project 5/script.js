@@ -48,6 +48,7 @@ let equal = () => {
     if (answer) {
       input.classList.remove("error");
       input.placeholder = "";
+      input.value = answer;
     } else {
       input.classList.add("error");
       input.value = "";
