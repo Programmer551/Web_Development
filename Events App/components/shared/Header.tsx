@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SignedOut } from "@clerk/nextjs";
 const Header = () => {
   return (
     <header className='w-full border-b'>
@@ -13,7 +14,13 @@ const Header = () => {
             height={38}
             alt='Events App Logo'></Image>
         </Link>
-        <div className='flex w-32 justify-end gap-3'></div>
+        <div className='flex w-32 justify-end gap-3'>
+          <SignedOut>
+            <button className='btn rounded-full btn-primary p-4'>
+              <Link href='/sign-in'>Login</Link>
+            </button>
+          </SignedOut>
+        </div>
       </div>
     </header>
   );
