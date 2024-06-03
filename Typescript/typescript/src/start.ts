@@ -37,7 +37,20 @@
 // const exists: boolean = NameExists("Duraid");
 // console.log(exists);
 
-const addNum = (num1: number, num2: number = 0): number => {
-  return num1 + num2;
+// const addNum = (...numbers: number[]): number => {
+//   // return num1 + num2;
+//   let finalAddedNumbers: number = 0;
+//   numbers.map((number) => {
+//     finalAddedNumbers += number;
+//   });
+//   return finalAddedNumbers;
+// };
+// console.log(addNum(1, 2, 4, 5));
+const processInput = (input: string | number): void => {
+  if (typeof input == "number") {
+    console.log(input * 2);
+  } else {
+    console.log(input.toUpperCase());
+  }
 };
-addNum(1);
+processInput("hello");

@@ -43,7 +43,7 @@ const Main = () => {
       }
       return null;
     });
-    console.log(updated);
+    // console.log(updated);
     updated = updated.filter(
       (item) => item !== null && typeof item === "object",
     );
@@ -54,7 +54,7 @@ const Main = () => {
     <div
       className='main full-height'
       style={divStyle}>
-      <Navbar></Navbar>
+      <Navbar />
       <div className='search center'>
         <Link to='/'>
           <button className='btn btn-primary'>Sign</button>
@@ -91,7 +91,7 @@ const Main = () => {
             src={orders_image}
             alt='Orders Logo'
             width='45px'
-            style={{ "marginLeft": "10px" }}
+            style={{ marginLeft: "10px" }}
             // className='orders'
           />
         </Link>

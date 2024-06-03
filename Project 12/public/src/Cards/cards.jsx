@@ -2,6 +2,8 @@
 import "./cards.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import image from "../../public/Images/basket.jpg";
+console.log(image);
 import { toast } from "react-toastify";
 const Cards = ({ name, price, src, detail, id, remove }) => {
   const [none, setNone] = useState("");
