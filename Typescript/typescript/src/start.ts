@@ -46,11 +46,20 @@
 //   return finalAddedNumbers;
 // };
 // console.log(addNum(1, 2, 4, 5));
-const processInput = (input: string | number): void => {
-  if (typeof input == "number") {
-    console.log(input * 2);
-  } else {
-    console.log(input.toUpperCase());
-  }
+// const processInput = (input: string | number): void => {
+//   if (typeof input == "number") {
+//     console.log(input * 2);
+//   } else {
+//     console.log(input.toUpperCase());
+//   }
+// };
+// processInput("hello");
+// const func = <T>(x: T) => {
+//   return x;
+// };
+// console.log(func<number>(1));
+const url = "https://www.course-api.com/react-tours-project";
+const fetchData = async (url: string) => {
+  try {
+  } catch (error) {}
 };
-processInput("hello");
