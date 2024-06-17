@@ -67,7 +67,6 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
-    console.log(name, password);
   };
   return (
     <div
