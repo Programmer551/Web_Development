@@ -1,75 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-</head>
-<body>
-<script type="text/javascript">
-	
-	let n=prompt("How much maches this series will be");
-    n=Number.parseInt(n)
-    let opponent_points=0;
-	let player_points=0;
-	for(let i=1;i<=n;i++){
-		let com=Math.floor(Math.random()*4)
-	let opponent;
-	if (com==1) {
-		opponent="Rock"
-	}
-	else if (com==2) {
-		opponent="Paper"
-	}
-	else{
-		opponent="Scissors"
-	}
-	
-	let player=prompt("Play rock paper scissors");
-	if (player===opponent) {
-		alert("This is tie")
-	}
-	else if(player==="Rock"&&opponent==="Scissors") {
-		alert("You won in this turn")
-		player_points++
-	}
-	else if(player==="Rock"&&opponent==="Paper") {
-		alert("You lost in this turn")
-		opponent_points++
-	}
-    else if(player==="Paper"&&opponent==="Scissors") {
-		alert("You lost in this turn")
-		opponent_points++
-	}
-	else if(player==="Paper"&&opponent==="Rock") {
-		alert("You won in this turn")
-		player_points++
-	}	
-	else if(player==="Scissors"&&opponent==="Rock") {
-		alert("You lost in this turn")
-		opponent_points++
-	}
-	else if(player==="Scissors"&&opponent==="Paper") {
-		alert("You won in this turn")
-		player_points++
-	}	
-	else{
-		alert("You entered something wrong")
-	}
-	}
-	if (player_points>opponent_points) {
-		alert("You won this series")
-	}
-	if (player_points<opponent_points) {
-		alert("You lost this series")
-	}
-	else if(opponent_points===player_points){
-		alert("This series ends with a tie")
-	}
-	
-	
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let n = prompt("How much maches this series will be");
+      n = Number.parseInt(n);
+      let opponent_points = 0;
+      let player_points = 0;
+      for (let i = 1; i <= n; i++) {
+        let com = Math.floor(Math.random() * 4);
+        let opponent;
+        if (com == 1) {
+          opponent = "Rock";
+        } else if (com == 2) {
+          opponent = "Paper";
+        } else {
+          opponent = "Scissors";
+        }
 
-
-</script>
-</body>
+        let player = prompt("Play rock paper scissors");
+        if (player === opponent) {
+          alert("This is tie");
+        } else if (player === "Rock" && opponent === "Scissors") {
+          alert("You won in this turn");
+          player_points++;
+        } else if (player === "Rock" && opponent === "Paper") {
+          alert("You lost in this turn");
+          opponent_points++;
+        } else if (player === "Paper" && opponent === "Scissors") {
+          alert("You lost in this turn");
+          opponent_points++;
+        } else if (player === "Paper" && opponent === "Rock") {
+          alert("You won in this turn");
+          player_points++;
+        } else if (player === "Scissors" && opponent === "Rock") {
+          alert("You lost in this turn");
+          opponent_points++;
+        } else if (player === "Scissors" && opponent === "Paper") {
+          alert("You won in this turn");
+          player_points++;
+        } else {
+          alert("You entered something wrong");
+        }
+      }
+      if (player_points > opponent_points) {
+        alert("You won this series");
+      }
+      if (player_points < opponent_points) {
+        alert("You lost this series");
+      } else if (opponent_points === player_points) {
+        alert("This series ends with a tie");
+      }
+    </script>
+  </body>
 </html>
